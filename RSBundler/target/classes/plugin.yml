@@ -39,7 +39,9 @@ commands:
    menu2:
       description: menu2
       usage: /menu2
-      
+   acceptGuideLine:
+      description: acceptGuideLine
+      usage: /acceptGuideLine
    report:
       description: report
       usage: d

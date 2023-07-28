@@ -82,18 +82,13 @@ public class UMapBuilding {
 		
 		return d;
 	}
-	public static List<String> guideLinePlayers(){
-		JSONArray players = (JSONArray) DataManager.loadPureJsonFromDb("map_contrib_db\\guidelines.json").get(1);
 
-		return (List) players;
-
-	}
 	public static void addGuideLinePlayer(Player p) throws FileNotFoundException {
-		List<String> pp = guideLinePlayers();
-		pp.add(p.getRealUUID());
-		JSONObject obj = (JSONObject) pp;
-
-		DataManager.savePureJsonToDb("map_contrib_db\\guidelines.json",obj);
+		
+		JSONObject o = DataManager.loadPureJsonFromDb("map_contrib_db\\involvement.json");
+		o.put(p.getRealUUID(), new JSONArray());
+		DataManager.savePureJsonToDb("map_contrib_db\\involvement.json", o);
+		
 	}
 	
 }

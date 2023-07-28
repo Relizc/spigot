@@ -61,6 +61,7 @@ D:\spigot\RSBundler\src\main\java\net\itsrelizc\commands\CommandServerMenu.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\global\Flags.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\nerdbot\interaction\PlayerOutboundChecker.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\players\Rank.java
+D:\spigot\RSBundler\src\main\java\net\itsrelizc\bookutils\BookUtils.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\networking\executors\UpdateWarpTemplate.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\npc\NPC.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\debugger\ShowInvClickSlot.java
@@ -79,6 +80,7 @@ D:\spigot\RSBundler\src\main\java\net\itsrelizc\server\QuickScheduler.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\players\Spectator.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\npc\NMSNetworkManager.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\global\Global.java
+D:\spigot\RSBundler\src\main\java\net\itsrelizc\commands\CommandAcceptGuidelines.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\types\ItemType.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\global\RawMain.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\networking\CommunicationType.java

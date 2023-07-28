@@ -8287,3 +8287,270 @@ java.io.FileNotFoundException:
 	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.queue(DecorationScheduler.java:419)
 	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:397)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.epp.mpc.ui 4 0 2023-07-28 22:07:19.697
+!MESSAGE Problems occurred while performing provisioning operation: operation plan must be resolved
+!STACK 0
+java.lang.IllegalStateException: operation plan must be resolved
+	at org.eclipse.equinox.internal.p2.ui.ProvUI.toCurrentJREOperation(ProvUI.java:338)
+	at org.eclipse.equinox.internal.p2.ui.ProvUI.toCompabilityWithCurrentJREProvisioningPlan(ProvUI.java:325)
+	at org.eclipse.epp.internal.mpc.ui.wizards.MarketplaceWizard.lambda$5(MarketplaceWizard.java:876)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+!SESSION 2023-07-28 22:08:44.098 -----------------------------------------------
+eclipse.buildId=4.28.0.20230608-1200
+java.version=17.0.7
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product -data file:/D:/spigot/ -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.jface 2 0 2023-07-28 22:08:47.144
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-07-28 22:08:47.144
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-07-28 22:08:49.231
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\relizc'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.help.base 2 0 2023-07-28 22:09:36.611
+!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.jdt.doc.user_3.15.1800.v20230601-1614 [242]'. The index should be rebuilt with Lucene 9.5.0
+
+!ENTRY org.eclipse.help.base 2 0 2023-07-28 22:09:36.612
+!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.platform.doc.user_4.28.0.v20230601-1614 [406]'. The index should be rebuilt with Lucene 9.5.0
+!SESSION 2023-07-28 22:10:52.689 -----------------------------------------------
+eclipse.buildId=4.28.0.20230608-1200
+java.version=17.0.7
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -data file:/D:/spigot/ -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.jface 2 0 2023-07-28 22:10:55.275
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-07-28 22:10:55.275
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-07-28 22:10:56.807
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\relizc'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2023-07-28 22:10:56.899
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.mylyn.builds.navigator.builds" id and the "Builds" label.It points to the non available "bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2023-07-28 22:10:56.899
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.mylyn.commons.repositories.ui.navigator.Repositories" id and the "Team Repositories" label.It points to the non available "bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2023-07-28 22:10:56.899
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.mylyn.reviews.Explorer" id and the "Review" label.It points to the non available "bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2023-07-28 22:10:56.899
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.mylyn.tasks.ui.views.tasks" id and the "Task List" label.It points to the non available "bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2023-07-28 22:10:56.900
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.mylyn.tasks.ui.views.repositories" id and the "Task Repositories" label.It points to the non available "bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" class. Bundle might have been uninstalled
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2023-07-28 22:13:49.098
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10054 2023-07-28 22:13:49.098
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.098
+!MESSAGE Software being installed: Wild Web Developer XML tools 1.2.0.202306201632 (org.eclipse.wildwebdeveloper.xml.feature.feature.group 1.2.0.202306201632)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.098
+!MESSAGE Software currently installed: M2E - POM Editor using LemMinX language server (includes Incubating components) 2.0.4.20230520-0934 (org.eclipse.m2e.lemminx.feature.feature.group 2.0.4.20230520-0934)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2023-07-28 22:13:49.098
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.098
+!MESSAGE XML support using Language Server 1.2.0.202306201632 (org.eclipse.wildwebdeveloper.xml 1.2.0.202306201632)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.098
+!MESSAGE XML support using Language Server 1.1.0.202304242122 (org.eclipse.wildwebdeveloper.xml 1.1.0.202304242122)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2023-07-28 22:13:49.098
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.098
+!MESSAGE From: M2E Maven POM File Editor using Wild Web Developer, LemMinX and Maven LS extension (requires Incubating components) 2.0.3.20230520-0934 (org.eclipse.m2e.editor.lemminx 2.0.3.20230520-0934)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.098
+!MESSAGE To: osgi.bundle; org.eclipse.wildwebdeveloper.xml [1.1.0,1.2.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2023-07-28 22:13:49.098
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.098
+!MESSAGE From: M2E - POM Editor using LemMinX language server (includes Incubating components) 2.0.4.20230520-0934 (org.eclipse.m2e.lemminx.feature.feature.group 2.0.4.20230520-0934)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.098
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.m2e.editor.lemminx [2.0.3.20230520-0934,2.0.3.20230520-0934]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2023-07-28 22:13:49.098
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.098
+!MESSAGE From: Wild Web Developer XML tools 1.2.0.202306201632 (org.eclipse.wildwebdeveloper.xml.feature.feature.group 1.2.0.202306201632)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.098
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.wildwebdeveloper.xml [1.2.0.202306201632,1.2.0.202306201632]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2023-07-28 22:13:49.123
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10054 2023-07-28 22:13:49.123
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.123
+!MESSAGE Software being installed: Wild Web Developer XML tools 1.2.0.202306201632 (org.eclipse.wildwebdeveloper.xml.feature.feature.group 1.2.0.202306201632)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.123
+!MESSAGE Software currently installed: M2E - POM Editor using LemMinX language server (includes Incubating components) 2.0.4.20230520-0934 (org.eclipse.m2e.lemminx.feature.feature.group 2.0.4.20230520-0934)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2023-07-28 22:13:49.123
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.123
+!MESSAGE XML support using Language Server 1.2.0.202306201632 (org.eclipse.wildwebdeveloper.xml 1.2.0.202306201632)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.123
+!MESSAGE XML support using Language Server 1.1.0.202304242122 (org.eclipse.wildwebdeveloper.xml 1.1.0.202304242122)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2023-07-28 22:13:49.123
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.123
+!MESSAGE From: M2E Maven POM File Editor using Wild Web Developer, LemMinX and Maven LS extension (requires Incubating components) 2.0.3.20230520-0934 (org.eclipse.m2e.editor.lemminx 2.0.3.20230520-0934)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.123
+!MESSAGE To: osgi.bundle; org.eclipse.wildwebdeveloper.xml [1.1.0,1.2.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2023-07-28 22:13:49.123
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.123
+!MESSAGE From: M2E - POM Editor using LemMinX language server (includes Incubating components) 2.0.4.20230520-0934 (org.eclipse.m2e.lemminx.feature.feature.group 2.0.4.20230520-0934)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.123
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.m2e.editor.lemminx [2.0.3.20230520-0934,2.0.3.20230520-0934]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2023-07-28 22:13:49.123
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.123
+!MESSAGE From: Wild Web Developer XML tools 1.2.0.202306201632 (org.eclipse.wildwebdeveloper.xml.feature.feature.group 1.2.0.202306201632)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.123
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.wildwebdeveloper.xml [1.2.0.202306201632,1.2.0.202306201632]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2023-07-28 22:13:49.823
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10054 2023-07-28 22:13:49.823
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.823
+!MESSAGE Software being installed: Wild Web Developer XML tools 1.2.0.202306201632 (org.eclipse.wildwebdeveloper.xml.feature.feature.group 1.2.0.202306201632)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.823
+!MESSAGE Software currently installed: M2E - POM Editor using LemMinX language server (includes Incubating components) 2.0.4.20230520-0934 (org.eclipse.m2e.lemminx.feature.feature.group 2.0.4.20230520-0934)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2023-07-28 22:13:49.823
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.823
+!MESSAGE XML support using Language Server 1.2.0.202306201632 (org.eclipse.wildwebdeveloper.xml 1.2.0.202306201632)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.823
+!MESSAGE XML support using Language Server 1.1.0.202304242122 (org.eclipse.wildwebdeveloper.xml 1.1.0.202304242122)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2023-07-28 22:13:49.823
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.823
+!MESSAGE From: M2E Maven POM File Editor using Wild Web Developer, LemMinX and Maven LS extension (requires Incubating components) 2.0.3.20230520-0934 (org.eclipse.m2e.editor.lemminx 2.0.3.20230520-0934)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.823
+!MESSAGE To: osgi.bundle; org.eclipse.wildwebdeveloper.xml [1.1.0,1.2.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2023-07-28 22:13:49.823
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.823
+!MESSAGE From: M2E - POM Editor using LemMinX language server (includes Incubating components) 2.0.4.20230520-0934 (org.eclipse.m2e.lemminx.feature.feature.group 2.0.4.20230520-0934)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.823
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.m2e.editor.lemminx [2.0.3.20230520-0934,2.0.3.20230520-0934]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2023-07-28 22:13:49.823
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.823
+!MESSAGE From: Wild Web Developer XML tools 1.2.0.202306201632 (org.eclipse.wildwebdeveloper.xml.feature.feature.group 1.2.0.202306201632)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.823
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.wildwebdeveloper.xml [1.2.0.202306201632,1.2.0.202306201632]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2023-07-28 22:13:49.824
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10054 2023-07-28 22:13:49.824
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.824
+!MESSAGE Software being installed: Wild Web Developer XML tools 1.2.0.202306201632 (org.eclipse.wildwebdeveloper.xml.feature.feature.group 1.2.0.202306201632)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.824
+!MESSAGE Software currently installed: M2E - POM Editor using LemMinX language server (includes Incubating components) 2.0.4.20230520-0934 (org.eclipse.m2e.lemminx.feature.feature.group 2.0.4.20230520-0934)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2023-07-28 22:13:49.824
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.824
+!MESSAGE XML support using Language Server 1.2.0.202306201632 (org.eclipse.wildwebdeveloper.xml 1.2.0.202306201632)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.824
+!MESSAGE XML support using Language Server 1.1.0.202304242122 (org.eclipse.wildwebdeveloper.xml 1.1.0.202304242122)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2023-07-28 22:13:49.824
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.824
+!MESSAGE From: M2E Maven POM File Editor using Wild Web Developer, LemMinX and Maven LS extension (requires Incubating components) 2.0.3.20230520-0934 (org.eclipse.m2e.editor.lemminx 2.0.3.20230520-0934)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.824
+!MESSAGE To: osgi.bundle; org.eclipse.wildwebdeveloper.xml [1.1.0,1.2.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2023-07-28 22:13:49.824
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.824
+!MESSAGE From: M2E - POM Editor using LemMinX language server (includes Incubating components) 2.0.4.20230520-0934 (org.eclipse.m2e.lemminx.feature.feature.group 2.0.4.20230520-0934)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.824
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.m2e.editor.lemminx [2.0.3.20230520-0934,2.0.3.20230520-0934]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2023-07-28 22:13:49.824
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.824
+!MESSAGE From: Wild Web Developer XML tools 1.2.0.202306201632 (org.eclipse.wildwebdeveloper.xml.feature.feature.group 1.2.0.202306201632)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2023-07-28 22:13:49.824
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.wildwebdeveloper.xml [1.2.0.202306201632,1.2.0.202306201632]
+!SESSION 2023-07-28 22:15:55.107 -----------------------------------------------
+eclipse.buildId=4.28.0.20230608-1200
+java.version=17.0.7
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -data file:/D:/spigot/ -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.jface 2 0 2023-07-28 22:15:58.243
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-07-28 22:15:58.243
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-07-28 22:16:01.536
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\relizc'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
