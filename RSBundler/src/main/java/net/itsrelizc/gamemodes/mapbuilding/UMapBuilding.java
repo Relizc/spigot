@@ -1,5 +1,6 @@
 package net.itsrelizc.gamemodes.mapbuilding;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,10 +13,10 @@ import org.json.simple.JSONObject;
 import net.itsrelizc.debugger.Debugger;
 import net.itsrelizc.menus.ItemGenerator;
 import net.itsrelizc.players.DataManager;
-import net.itsrelizc.players.Profile;
 
 public class UMapBuilding {
-	
+
+
 	public static ItemStack b(boolean n, String id) {
 		ItemStack i;
 		if (n) {
@@ -80,6 +81,19 @@ public class UMapBuilding {
 		}
 		
 		return d;
+	}
+	public static List<String> guideLinePlayers(){
+		JSONArray players = (JSONArray) DataManager.loadPureJsonFromDb("map_contrib_db\\guidelines.json").get(1);
+
+		return (List) players;
+
+	}
+	public static void addGuideLinePlayer(Player p) throws FileNotFoundException {
+		List<String> pp = guideLinePlayers();
+		pp.add(p.getRealUUID());
+		JSONObject obj = (JSONObject) pp;
+
+		DataManager.savePureJsonToDb("map_contrib_db\\guidelines.json",obj);
 	}
 	
 }
