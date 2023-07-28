@@ -54,7 +54,6 @@ INDEX VERSION 1.134+D:\spigot\.metadata\.plugins\org.eclipse.jdt.core
 3126435964.index
 1899188479.index
 1817089265.index
-987660169.index
 3480679864.index
 1091863245.index
 3714753668.index
