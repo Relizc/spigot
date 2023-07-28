@@ -1,0 +1,68 @@
+package net.itsrelizc.gamemodes.mapbuilding;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import net.itsrelizc.debugger.Debugger;
+import net.itsrelizc.menus.ItemGenerator;
+import net.itsrelizc.players.DataManager;
+import net.itsrelizc.players.Profile;
+
+public class UMapBuilding {
+	
+	public static ItemStack b(boolean n, String id) {
+		ItemStack i = ItemGenerator.generate(new ItemStack(Material.SMOOTH_BRICK, 1, (short) 2), 1, "§cVanished Map", "§7This map does not exist!",
+				"",
+				"§7The owner might have deleted",
+				"§7this map, or this map violates",
+				"§7Relizc Network's \"Appropriate",
+				"§7Gaming Policies\".",
+				"",
+				"§aClick to remove this map from your list!",
+				"",
+				"§8[Technical Data]",
+				"§8id=" + id);
+		return i;
+	}
+	
+	public static ItemStack b() {
+		ItemStack i = ItemGenerator.generate(new ItemStack(Material.SMOOTH_BRICK, 1, (short) 2), 1, "§cVanished Map", "§7This map does not exist!",
+				"",
+				"§7The owner might have deleted",
+				"§7this map, or this map violates",
+				"§7Relizc Network's \"Appropriate",
+				"§7Gaming Policies\".",
+				"",
+				"§aClick to remove this map from your list!");
+		return i;
+	}
+
+	public static List<ItemStack> a(Player player) {
+		JSONArray all = (JSONArray) DataManager.loadPureJsonFromDb("map_contrib_db\\involvement.json").get(player.getRealUUID());
+		
+		List<ItemStack> d = new ArrayList<ItemStack>();
+		
+		boolean n = Debugger.hasDebug(player);
+		
+		for (Object q : all) {
+			String id = (String) q;
+			
+			JSONObject mapdata = DataManager.loadPureJsonFromDb("community_worlds\\" + id + "\\meta.json");
+			
+			
+			
+			if (mapdata == null) {
+				d.add(b(n, id));
+			}
+		}
+		
+		return d;
+	}
+	
+}

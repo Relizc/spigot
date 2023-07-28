@@ -1,0 +1,49 @@
+name: RSBundler
+main: net.itsrelizc.global.RawMain
+version: "stable-3.33.27"
+author: Relizc
+api-version: 1.13
+commands:
+   libraryversion:
+      description: command
+      usage: /libraryversion
+   npc:
+      description: cmd
+      usage: /npc
+   menu1:
+      description: menu demo
+      usage: /menu1
+   servermenu:
+      description: menu
+      usage: /servermenu
+      aliases: [sm, menuserver]
+   /cholo:
+      description: spawn a colored hologram
+      usage: §cInvalid Usage! //cholo <x> <y> <z> <name> OR //cholo <name>!
+   hlplayer:
+      description: player bound box
+      usage: no
+   hlblock:
+      description: block bound box
+      usage: no
+   catwarp:
+      description: cat
+      usage: §cInvalid Usage! /catwarp <Server Enum Type>!
+   lobby:
+      description: lobby
+      usage: /lobby, /l
+      aliases: [l, lob, ragequit, hub]
+   stop:
+      description: Stop
+      usage: §cInvalid Usage! /stop <Reason>
+   menu2:
+      description: menu2
+      usage: /menu2
+      
+   report:
+      description: report
+      usage: d
+      aliases: [r, 举报, melden, сообщить, 신고, 報告]
+     
+      
+      

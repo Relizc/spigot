@@ -1,0 +1,5 @@
+name: RSTHBTE
+main: net.itsrelizc.thbte.Main
+version: 1.0.0
+author: Relizc
+depend: [ProtocolLib]

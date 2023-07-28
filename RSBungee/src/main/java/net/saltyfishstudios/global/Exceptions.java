@@ -1,0 +1,9 @@
+package net.saltyfishstudios.global;
+
+public enum Exceptions {
+	UNKNOWN_DYNAMIC_ERROR,
+	SERVER_NOT_FOUND,
+	SERVER_CONNECTION_TIMED_OUT,
+	SERVER_CONNECTION_REFUSED,
+	SERVER_WARP_THROTTLED
+}

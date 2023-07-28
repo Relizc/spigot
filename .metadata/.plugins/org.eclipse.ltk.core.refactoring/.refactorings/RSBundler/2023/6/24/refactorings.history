@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;CommandLobby.java&apos; to &apos;net.itsrelizc.commands.CommandLobby.java&apos;&#x0D;&#x0A;- Original project: &apos;RSBundler&apos;&#x0D;&#x0A;- Destination element: &apos;net.itsrelizc.commands.CommandLobby.java&apos;&#x0D;&#x0A;- Original element: &apos;net.itsrelizc.commands.CommandLobby.java&apos;" description="Copy compilation unit" destination="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;net.itsrelizc.commands{CommandLobby.java" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;net.itsrelizc.commands{CommandLobby.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1686814041246" units="1" version="1.0"/>
+</session>

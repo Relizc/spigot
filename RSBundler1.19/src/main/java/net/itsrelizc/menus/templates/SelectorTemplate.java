@@ -1,0 +1,28 @@
+package net.itsrelizc.menus.templates;
+
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
+
+import net.itsrelizc.menus.ClassicMenu;
+
+public class SelectorTemplate implements TemplateBase {
+
+	@Override
+	public void onClick(InventoryClickEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onClose(InventoryCloseEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void loadTemplate(ClassicMenu classicMenu) {
+		classicMenu.fillEmpty();
+		classicMenu.leaveMiddleArea();
+	}
+
+}

@@ -1,0 +1,148 @@
+package net.itsrelizc.menus.templates;
+
+import java.io.IOException;
+
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.ClickType;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemStack;
+
+import net.itsrelizc.global.ChatUtils;
+import net.itsrelizc.menus.ClassicMenu;
+import net.itsrelizc.menus.ItemGenerator;
+import net.itsrelizc.menus.Skull;
+import net.itsrelizc.networking.Communication;
+import net.itsrelizc.networking.CommunicationType;
+import net.itsrelizc.warp.ServerCategory;
+import net.itsrelizc.warp.WarpUtils;
+
+public class TemplateServerMenu extends MenuTemplate {
+	
+	public TemplateServerMenu() {
+		
+	}
+	
+	@Override
+	public void loadTemplate(ClassicMenu menu) {
+		menu.setItem(4, ItemGenerator.generate(
+				Skull.getCustomSkull("http://textures.minecraft.net/texture/7830fd0fc24fa2afa51260178db4e81cc3d77da6344d74cfae4bc8724ac4c59"),
+				1, 
+				"§e§lRelizc Network", 
+				"§7Relizc Network was created",
+				"§7on the 8th of Feburary (maybe)",
+				"§7and it was initially a joke",
+				"§7to overthrow Relizc's friend",
+				"§7TedZiTai's abusive server!",
+				"",
+				"§7We established a brand new",
+				"§7server style, hopefully",
+				"§7without any admin abuse!",
+				"",
+				"§7But still have fun!")
+			);
+		
+		// GAMES
+		
+		menu.setItem(13, ItemGenerator.generate(Material.GRASS, 1, "§e§lRELIZC NETWORK SMP", 
+				"§7Probably what we are famous",
+				"§7for! Relizc Network's first",
+				"§7ever SMP was the §oLifesteal",
+				"§7§oSMP§r§7, which was one of",
+				"§7our featured games!",
+				"",
+				"§bLeft Click §7to view a list of",
+				"§bavaliable SMP games!",
+				"",
+				"§aRight Click §7to join the current",
+				"§7season of §dVanilla Minecraft SMP"));
+		
+		menu.setItem(12, ItemGenerator.generate(Material.IRON_PICKAXE, 1, "§e§lDEATHSWAP§r §b§lWORK IN PROGRESS!", 
+				"§7You might know this game very",
+				"§7well if you are one of Dream's",
+				"§7fans. He had played this kind of",
+				"§7minigame in his youtube videos!",
+				"",
+				"§7This game is consisted of 2 to",
+				"§7§m4§r §7§m8§r §7§m16§r §7any amount of players!",
+				"§7Players will teleport to each",
+				"§7other randomly, and some might get",
+				"§7fooled by other player's traps!",
+				"",
+				"§7Be Careful!",
+				"",
+				"§8§mClick to play!",
+				"§cThis game is still WIP!"));
+		
+		menu.setItem(14, ItemGenerator.generate(new ItemStack(Material.STAINED_CLAY, 1, (byte) 14), 1, "§e§lBRIDGE DUELS§r §d§lBETA RELEASED!", 
+				"§7A pretty simple duels game where",
+				"§7each team has to jump into other",
+				"§7team's goal to score a point.",
+				"",
+				"§7Also another cool game of the",
+				"§7Relizc Network!",
+				"",
+				"§aClick to try out the §dBeta Version§r§b!"
+				));
+		
+		menu.setItem(11, ItemGenerator.generate(Material.BEDROCK, 1, "§7Coming Soon!"));
+		menu.setItem(10, ItemGenerator.generate(Material.BEDROCK, 1, "§7Coming Soon!"));
+		menu.setItem(15, ItemGenerator.generate(Material.BEDROCK, 1, "§7Coming Soon!"));
+		menu.setItem(16, ItemGenerator.generate(Material.BEDROCK, 1, "§7Coming Soon!"));
+		
+		menu.setItem(22, ItemGenerator.generate(
+				Skull.getPlayerSkull(menu.holder.getName()),
+				1, 
+				"§b§lYOUR PROFILE", 
+				"§7Click to view your Relizc Network",
+				"§7profile!",
+				"",
+				"§eYou can view these items here:",
+				"§e• Playtime",
+				"§e• Date joined",
+				"§e• Game statistics",
+				"§e• Nerdies",
+				"§e• ...",
+				"",
+				"§aClick to view your profile!")
+			);
+		
+		menu.setItem(19, ItemGenerator.generate(new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 7), 1, "§7Coming Soon!"));
+		menu.setItem(20, ItemGenerator.generate(new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 7), 1, "§7Coming Soon!"));
+		menu.setItem(21, ItemGenerator.generate(new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 7), 1, "§7Coming Soon!"));
+		menu.setItem(23, ItemGenerator.generate(new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 7), 1, "§7Coming Soon!"));
+		menu.setItem(24, ItemGenerator.generate(new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 7), 1, "§7Coming Soon!"));
+		menu.setItem(25, ItemGenerator.generate(new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 7), 1, "§7Coming Soon!"));
+		
+		menu.setItem(28, ItemGenerator.generate(new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 7), 1, "§7Coming Soon!"));
+		menu.setItem(29, ItemGenerator.generate(new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 7), 1, "§7Coming Soon!"));
+		menu.setItem(30, ItemGenerator.generate(new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 7), 1, "§7Coming Soon!"));
+		menu.setItem(31, ItemGenerator.generate(new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 7), 1, "§7Coming Soon!"));
+		menu.setItem(32, ItemGenerator.generate(new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 7), 1, "§7Coming Soon!"));
+		menu.setItem(33, ItemGenerator.generate(new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 7), 1, "§7Coming Soon!"));
+		menu.setItem(34, ItemGenerator.generate(new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 7), 1, "§7Coming Soon!"));
+		
+		menu.setItem(37, ItemGenerator.generate(new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 7), 1, "§7Coming Soon!"));
+		menu.setItem(38, ItemGenerator.generate(new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 7), 1, "§7Coming Soon!"));
+		menu.setItem(39, ItemGenerator.generate(new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 7), 1, "§7Coming Soon!"));
+		menu.setItem(40, ItemGenerator.generate(new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 7), 1, "§7Coming Soon!"));
+		menu.setItem(41, ItemGenerator.generate(new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 7), 1, "§7Coming Soon!"));
+		menu.setItem(42, ItemGenerator.generate(new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 7), 1, "§7Coming Soon!"));
+		menu.setItem(43, ItemGenerator.generate(new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 7), 1, "§7Coming Soon!"));
+		
+	}
+	
+	@Override
+	public void onClick(InventoryClickEvent event) {
+		
+		if (event.getSlot() == 13) {
+			if (event.getClick() == ClickType.RIGHT) {
+				WarpUtils.send((Player) event.getWhoClicked(), ServerCategory.SMP);
+			} else {
+				ChatUtils.systemMessage(event.getWhoClicked(), "§e§lSMP", "§cI cannot show you a list of SMP servers now!");
+			}
+		}
+		
+	}
+	
+}

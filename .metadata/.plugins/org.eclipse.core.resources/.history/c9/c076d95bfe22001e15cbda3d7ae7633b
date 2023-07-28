@@ -1,0 +1,28 @@
+package net.itsrelizc.menus.templates;
+
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
+
+import net.itsrelizc.menus.ClassicMenu;
+import net.itsrelizc.menus.ItemGenerator;
+
+public class TemplateMapCreator extends MenuTemplate {
+	
+	public TemplateMapCreator() {
+		
+	}
+	
+	@Override
+	public void loadTemplate(ClassicMenu menu) {
+		menu.fillEmpty();
+		menu.leaveMiddleAreaWithDimGlass();
+		
+		menu.setItem(4, ItemGenerator.generate(new ItemStack(Material.FILLED_MAP, 1), 1, "§6§lMAP CONTRIBUTION", 
+				"§7Start contributing and building maps for",
+				"§7the Relizc Network Community! Create,",
+				"§7find, or join a map creation squad"
+				));
+		
+		
+	}
+}

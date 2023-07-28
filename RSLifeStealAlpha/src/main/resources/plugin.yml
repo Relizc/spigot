@@ -1,0 +1,29 @@
+name: RSLifeStealAlpha
+main: net.itsrelizc.lifesteal.Main
+version: 1.0.0
+author: Relizc
+api-version: 1.19
+permissions:
+    main.player:
+       description: player
+       default: true
+    main.admin:
+       description: admin
+       default: op
+commands:
+   ban:
+      usage: "§cInvalid Usage! /ban <Player: Player Name> <Reason: Text>"
+      permission: main.admin
+   hearts:
+      usage: "§cInvalid Usage! /hearts"
+      permission: main.player
+   withdraw:
+      usage: "§cInvalid Usage! /withdraw"
+      permission: main.player
+   douloveme:
+      usage: "§cInvalid Usage! /random"
+      permission: main.admin
+   revive:
+      usage: "§cInvalid Usage! /revive <Player: Player Name>"
+      permission: main.player
+      

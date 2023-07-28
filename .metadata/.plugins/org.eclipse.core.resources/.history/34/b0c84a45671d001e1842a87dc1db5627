@@ -1,0 +1,24 @@
+package net.saltyfishstudios.bungee;
+
+import java.sql.Timestamp;
+import java.util.Random;
+import java.util.UUID;
+import java.util.Map.Entry;
+
+import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.api.connection.ProxiedPlayer;
+
+public class ChatUtils {
+	
+	public static void systemMessage(ProxiedPlayer player, String message) {
+		player.sendMessage("§l§dSYSTEM §r§8> §r" + message);
+	}
+	
+	public static void systemMessage(ProxiedPlayer player, String channel, String message) {
+		player.sendMessage(channel.toUpperCase() + " §r§8> §r" + message);
+	}
+	
+	public static void npcMessage(ProxiedPlayer player, String name, String content) {
+		player.sendMessage("§d[NPC] " + name + "§7:§r " + content);
+	}
+}

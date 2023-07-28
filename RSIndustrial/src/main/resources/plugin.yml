@@ -1,0 +1,5 @@
+name: RSIndustrial
+main: net.itsrelizc.industrial.Main
+version: "0.0.1-snapshot"
+author: Relizc
+depend: [RSBundler]

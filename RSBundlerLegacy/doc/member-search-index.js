@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"net.itsrelizc.npc","c":"NPC","l":"NPC()","u":"%3Cinit%3E()"},{"p":"net.itsrelizc.npc","c":"NPC","l":"setSkinName(String)","u":"setSkinName(java.lang.String)"}];updateSearchResults();

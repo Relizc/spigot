@@ -1,0 +1,50 @@
+package net.saltyfishstudios.bungee;
+
+import java.io.FileNotFoundException;
+
+import org.json.simple.JSONObject;
+
+import net.md_5.bungee.api.event.PreLoginEvent;
+
+public class BanUtils {
+	
+	public static void checkLogin(PreLoginEvent event) {
+		JSONObject obj = DataManager.loadPureJsonFromDb("banned.json");
+		if (obj.containsKey(event.getConnection().getUniqueId().toString())) {
+			JSONObject data = (JSONObject) obj.get(event.getConnection().getUniqueId().toString());
+			
+			long secondsOffset = (((long) (data.get("expires")) * 1000) - System.currentTimeMillis()) / 1000;
+			
+			if (secondsOffset <= 0) {
+				data.remove(event.getConnection().getUniqueId().toString(), data);
+				try {
+					DataManager.savePureJsonToDb("banned.json", data);
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				return;
+			}
+			
+			long days = secondsOffset / 86400;
+	    	long hours = (secondsOffset - (days * 86400)) / 3600;
+	    	long minutes = (secondsOffset - (days * 86400) - (hours * 3600)) / 60;
+	    	long seconds = secondsOffset % 60;
+	    	
+			String mutereason = "§cDue to your violation of our §l\"Terms Of Services\"§r§c, your account has been temporarily suspended to access our server for"
+					+ "\n§b§l"  + days + "d " + hours + "h " + minutes + "m " + seconds + "s"
+					+ "\n\n§cYou had violated the term:§b\n" + data.get("reason")
+					+ "\n\n"
+					+ "§7To submit an appeal, you will be required to provide your current"
+					+ "\n§7Ban ID (§e@" + ((String) data.get("id")).toUpperCase() + "§7) and"
+					+ "\n§7a sufficient amount of evidence."
+					+ "\n\n§7Spamming and resubmitting refused appeals will cause your ban's"
+					+ "\n§7decision will be final and appeals will no longer be accepted."
+					+ "\n\n§aAppeals avaliable at §2§nhttps://mc.itsrelizc.net/appeals§r§a or"
+					+ "\n§avisit §2§nhttps://mc.itsrelizc.net/a/" + ((String) data.get("id")).toUpperCase() + "§r§a to directly visit"
+					+ "\n§ayour appeal page.";
+			event.getConnection().disconnect(mutereason);
+		}
+	}
+
+}

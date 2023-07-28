@@ -1,0 +1,14 @@
+package net.itsrelizc.menus.templates;
+
+import org.bukkit.inventory.ItemStack;
+
+import net.itsrelizc.gamemodes.mapbuilding.UMapBuilding;
+
+public class TemplateMapCreatorMapBrowser extends SelectorTemplate {
+
+	public void load() {
+		List<ItemStack> bb = UMapBuilding.a(this.menu.holder);
+	}
+	
+}
+ 

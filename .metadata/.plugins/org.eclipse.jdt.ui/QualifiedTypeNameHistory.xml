@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerCommandPreprocessEvent"/>
+    <fullyQualifiedTypeName name="org.bukkit.event.Listener"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="net.itsrelizc.players.Commanding"/>
+    <fullyQualifiedTypeName name="org.apache.commons.lang.StringUtils"/>
+    <fullyQualifiedTypeName name="net.itsrelizc.networking.CommunicationType"/>
+    <fullyQualifiedTypeName name="net.itsrelizc.networking.Communication"/>
+    <fullyQualifiedTypeName name="net.itsrelizc.networking.Components"/>
+    <fullyQualifiedTypeName name="net.itsrelizc.global.Me"/>
+    <fullyQualifiedTypeName name="net.itsrelizc.server.ShutdownManager.ShutdownType"/>
+    <fullyQualifiedTypeName name="net.itsrelizc.server.ShutdownManager"/>
+    <fullyQualifiedTypeName name="net.itsrelizc.commands.UCommandInitlizer"/>
+    <fullyQualifiedTypeName name="net.itsrelizc.server.ULogHandler"/>
+    <fullyQualifiedTypeName name="org.bukkit.plugin.Plugin"/>
+    <fullyQualifiedTypeName name="org.bukkit.command.CommandExecutor"/>
+    <fullyQualifiedTypeName name="org.bukkit.command.TabCompleter"/>
+    <fullyQualifiedTypeName name="net.itsrelizc.commands.IBaseCommand"/>
+    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
+    <fullyQualifiedTypeName name="org.bukkit.entity.Player"/>
+    <fullyQualifiedTypeName name="net.itsrelizc.global.ChatUtils"/>
+    <fullyQualifiedTypeName name="net.itsrelizc.nerdbot.report.ReportTypes"/>
+    <fullyQualifiedTypeName name="net.itsrelizc.players.DataManager"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="java.lang.reflect.Field"/>
+    <fullyQualifiedTypeName name="org.apache.commons.lang3.StringUtils"/>
+    <fullyQualifiedTypeName name="net.minecraft.world.level.World"/>
+    <fullyQualifiedTypeName name="org.bukkit.craftbukkit.v1_19_R1.entity.CraftArmorStand"/>
+    <fullyQualifiedTypeName name="net.minecraft.network.chat.IChatBaseComponent"/>
+    <fullyQualifiedTypeName name="java.util.Base64"/>
+    <fullyQualifiedTypeName name="net.minecraft.network.protocol.game.PacketPlayOutPlayerListHeaderFooter"/>
+    <fullyQualifiedTypeName name="net.minecraft.network.chat.IChatBaseComponent.ChatSerializer"/>
+    <fullyQualifiedTypeName name="org.bukkit.craftbukkit.v1_19_R1.entity.CraftPlayer"/>
+    <fullyQualifiedTypeName name="net.md_5.bungee.api.chat.TextComponent"/>
+    <fullyQualifiedTypeName name="net.md_5.bungee.api.ChatMessageType"/>
+    <fullyQualifiedTypeName name="net.itsrelizc.players.locale.Locale"/>
+    <fullyQualifiedTypeName name="net.minecraft.network.protocol.game.PacketPlayOutWorldParticles"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="net.itsrelizc.menus.ItemGenerator"/>
+    <fullyQualifiedTypeName name="org.bukkit.Material"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,78 @@
+name: RSLifeSteal
+main: net.itsrelizc.lifesteal.Main
+version: 1.0.0
+author: Relizc
+api-version: 1.19
+permissions:
+    main.player:
+       description: player
+       default: true
+    main.admin:
+       description: admin
+       default: op
+commands:
+   ban:
+      usage: "§cInvalid Usage! /ban <Player: Player Name> <Reason: Text>"
+      permission: main.player
+   hearts:
+      usage: "§cInvalid Usage! /hearts"
+      permission: main.player
+   withdraw:
+      usage: "§cInvalid Usage! /withdraw"
+      permission: main.player
+   douloveme:
+      usage: "§cInvalid Usage! /random"
+      permission: main.admin
+   revive:
+      usage: "§cInvalid Usage! /revive <Player: Player Name>"
+      permission: main.player
+   updates:
+      usage: /updates
+      permission: main.player
+   setheart:
+      usage: "§cInvalid Usage! /setheart <Player: Player Name> <Integer: Hearts>" 
+      permission: main.admin
+   whisper:
+      usage: "§cInvalid Usage! /whisper <Player: Player Name> <String: Message>" 
+      permission: main.player
+      aliases: [w, msg, message]
+   shop:
+      usage: "§cInvalid Usage! /shop" 
+      permission: main.player
+      aliases: [store]
+   music:
+      usage: "§cInvalid Usage! /music" 
+      permission: main.player
+   tpa:
+      usage: "§cInvalid Usage! /tpa <Player: Player Name>" 
+      permission: main.player
+   tpy:
+      usage: "§cInvalid Usage! /tpy <Player: Player Name>" 
+      permission: main.player
+   tpn:
+      usage: "§cInvalid Usage! /tpn <Player: Player Name>" 
+      permission: main.player
+   recipe:
+      usage: "§cInvalid Usage! /recipe" 
+      permission: main.player
+   rules:
+      usage: "§cInvalid Usage! /rules" 
+      permission: main.player
+   investigate:
+      usage: "§cInvalid Usage! /investigate" 
+      permission: main.player
+      aliases: [i, ins]
+   mute:
+      usage: "§cInvalid Usage! /mute <Player: Player Name> <String: Message>" 
+      permission: main.player
+   rank:
+      usage: "§cInvalid Usage! /rank <Player: Player Name> <Integer: Rank ID>" 
+      permission: main.player
+   me:
+      usage: "§cInvalid Usage! /me <String: msg>" 
+      permission: main.player
+   auctionhouse:
+      usage: "§cInvalid Usage! /auctionhouse" 
+      permission: main.player
+      aliases: [ah, auction]
+      

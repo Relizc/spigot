@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;net.itsrelizc.smp&apos; to &apos;net.itsrelizc.hunters&apos;&#x0D;&#x0A;- Original project: &apos;RSGameSMPBase&apos;&#x0D;&#x0A;- Original element: &apos;RSGameSMPBase/src/main/java/net.itsrelizc.smp&apos;&#x0D;&#x0A;- Renamed element: &apos;RSGameSMPBase/src/main/java/net.itsrelizc.hunters&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;net.itsrelizc.smp&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;net.itsrelizc.smp" name="net.itsrelizc.hunters" qualified="false" references="true" stamp="1687595914085" textual="false" version="1.0"/>
+</session>

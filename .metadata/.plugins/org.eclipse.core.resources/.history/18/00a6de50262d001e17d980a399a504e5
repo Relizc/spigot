@@ -1,0 +1,25 @@
+package net.itsrelizc.menus.templates;
+
+import java.util.List;
+
+import org.bukkit.inventory.ItemStack;
+
+import net.itsrelizc.gamemodes.mapbuilding.UMapBuilding;
+import net.itsrelizc.menus.ClassicMenu;
+
+public class TemplateMapCreatorMapBrowser extends SelectorTemplate {
+
+	public void load(ClassicMenu menu) {
+		List<ItemStack> bb = UMapBuilding.a(this.menu.holder);
+		
+		if (bb == null) {
+			menu.setItem(PAGE_SIZE_PER_PAGE, null);
+		}
+	}
+	
+	public ItemStack a() {
+		
+	}
+	
+}
+ 
