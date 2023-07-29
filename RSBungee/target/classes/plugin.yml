@@ -1,0 +1,12 @@
+name: RSBundler
+main: net.saltyfishstudios.bungee.Main
+version: 1.0.0
+author: Relizc
+permissions:
+    main.player:
+       description: player
+       default: true
+    main.admin:
+       description: admin
+       default: op
+   

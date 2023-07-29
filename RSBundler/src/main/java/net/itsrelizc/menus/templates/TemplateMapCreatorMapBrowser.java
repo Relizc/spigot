@@ -20,6 +20,8 @@ import net.itsrelizc.menus.ItemGenerator;
 import org.bukkit.inventory.meta.BookMeta;
 
 public class TemplateMapCreatorMapBrowser extends SelectorTemplate {
+	
+	private boolean c = false;
 
 	public void load(ClassicMenu menu) {
 		List<ItemStack> bb = UMapBuilding.a(this.menu.holder);
@@ -27,6 +29,7 @@ public class TemplateMapCreatorMapBrowser extends SelectorTemplate {
 		if (bb == null) {
 			menu.setItem(22, a());
 			menu.setItem(31, a(1));
+			c = true;
 			return;
 		}
 		
@@ -59,7 +62,7 @@ public class TemplateMapCreatorMapBrowser extends SelectorTemplate {
 		return b;
 	}
 	public void onClick(InventoryClickEvent e){
-		if(e.getSlot() == 31 && e.getCurrentItem().getType() == Material.SIGN){
+		if(e.getSlot() == 31 && ){
 			Player p = (Player) e.getWhoClicked();
 
 			ItemStack book = new ItemStack(Material.WRITTEN_BOOK);
