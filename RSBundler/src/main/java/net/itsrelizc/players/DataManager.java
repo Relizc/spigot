@@ -46,7 +46,8 @@ public class DataManager {
 	public static void savePureJsonToDb(String dbname, JSONObject result) throws FileNotFoundException {
 		File current = new File(System.getProperty("user.dir"));
 		File database = new File(current.getParentFile().getParentFile().toString() + "\\database");
-		
+		File dataBaseMore = new File(current.getParentFile().getParentFile().toString()+"\\database\\"+dbname);
+
 		for (File f : database.listFiles()) {
 			if (f.getName().equalsIgnoreCase(dbname)) {
 				try {
@@ -62,8 +63,18 @@ public class DataManager {
 				}
 			}
 		}
-		
-		throw new FileNotFoundException();
+		try {
+			FileWriter fw = new FileWriter(dataBaseMore);
+			fw.write(result.toJSONString());
+			fw.flush();
+			fw.close();
+			return;
+
+		} catch (IOException e) {
+			throw new FileNotFoundException();
+		}
+
+
 	}
 	
 }

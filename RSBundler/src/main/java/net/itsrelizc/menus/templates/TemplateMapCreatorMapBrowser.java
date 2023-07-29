@@ -9,6 +9,8 @@ import java.util.Objects;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import net.itsrelizc.bookutils.BookUtils;
+import net.itsrelizc.warp.ServerCategory;
+import net.itsrelizc.warp.WarpUtils;
 import net.md_5.bungee.api.chat.*;
 import net.md_5.bungee.chat.ComponentSerializer;
 import net.minecraft.server.v1_8_R3.IChatBaseComponent;
@@ -33,7 +35,13 @@ public class TemplateMapCreatorMapBrowser extends SelectorTemplate {
 		
 		if (bb == null) {
 			menu.setItem(22, a());
-			menu.setItem(31, a(1));
+			if(UMapBuilding.guideLinePlayers().contains(menu.holder.getRealUUID())){
+				menu.setItem(31,a(1,""));
+
+			}else{
+				menu.setItem(31, a(1,""));
+			}
+
 			return;
 		}
 		
@@ -63,6 +71,13 @@ public class TemplateMapCreatorMapBrowser extends SelectorTemplate {
 				"",
 				"§aClick to read the guidelines!");
 		
+		return b;
+	}
+	public ItemStack a(int a,String bbbbb) {
+		ItemStack b = ItemGenerator.generate(Material.SIGN, 1, "§aRead the \"Building Guidelines\"!",
+				"§7Click to start building!"
+				);
+
 		return b;
 	}
 	public void onClick(InventoryClickEvent e) throws NoSuchFieldException, InvocationTargetException, NoSuchMethodException, IllegalAccessException, InstantiationException {
@@ -104,6 +119,9 @@ public class TemplateMapCreatorMapBrowser extends SelectorTemplate {
 				p.closeInventory();
 //				((CraftPlayer) p).getHandle().openBook(CraftItemStack.asNMSCopy(book));
 				BookUtils.openBook(book,p);
+
+			}else if(Objects.requireNonNull(UMapBuilding.guideLinePlayers()).contains(p.getRealUUID())){
+				WarpUtils.send(p, ServerCategory.PUBLIC_BUILD);
 
 			}
 		}
