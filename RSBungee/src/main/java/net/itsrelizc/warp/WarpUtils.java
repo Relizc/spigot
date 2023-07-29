@@ -24,8 +24,8 @@ public class WarpUtils {
 	    ServerInfo info = ProxyServer.getInstance().constructServerInfo(ramId + sid, socketAddress, "Relizc Proxy Hehehe", false);
 	    ProxyServer.getInstance().getServers().put(ramId + sid, info);
 	    
-	    if (servers.get(category) == null) {
-	    	servers.put(category, new ServerCollector());
+	    while (servers.get(category) == null) {
+		    servers.put(category, new ServerCollector());
 	    }
 	    
 	    servers.get(category).addServer(info);
