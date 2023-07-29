@@ -1,4 +1,4 @@
-\.metadata/
-\.idea/
+.idea/*
+.metadata
 apache-maven-3.6.0/
 

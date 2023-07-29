@@ -1,6 +1,0 @@
-name: RSGlobal
-main: net.itsrelizc.global.Main
-version: 1.0.0
-author: Relizc
-depend: [ProtocolLib]
-   
