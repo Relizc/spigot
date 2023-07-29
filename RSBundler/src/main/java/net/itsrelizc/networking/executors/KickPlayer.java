@@ -49,7 +49,7 @@ public class KickPlayer implements Runnable {
 				ok.writeByte((byte) 0x00);
 				ok.writeString(prop.getProperty("sid"));
 				ok.writeByte((byte) 0x00);
-				ok.writeString("Scuessfully kicked player " + p);
+				ok.writeString("Successfully kicked player " + p);
 				try {
 					ok.sendMessage();
 				} catch (IOException e) {

@@ -1,11 +1,18 @@
 package net.itsrelizc.menus.templates;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
+import net.itsrelizc.bookutils.BookUtils;
 import net.md_5.bungee.api.chat.*;
 import net.md_5.bungee.chat.ComponentSerializer;
 import net.minecraft.server.v1_8_R3.IChatBaseComponent;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.craftbukkit.v1_8_R3.inventory.CraftItemStack;
@@ -58,10 +65,12 @@ public class TemplateMapCreatorMapBrowser extends SelectorTemplate {
 		
 		return b;
 	}
-	public void onClick(InventoryClickEvent e){
+	public void onClick(InventoryClickEvent e) throws NoSuchFieldException, InvocationTargetException, NoSuchMethodException, IllegalAccessException, InstantiationException {
 		if(e.getSlot() == 31){
 			Player p = (Player) e.getWhoClicked();
-			if(!UMapBuilding.guideLinePlayers().contains(p.getRealUUID())){
+			if(UMapBuilding.guideLinePlayers()==null||!Objects.requireNonNull(UMapBuilding.guideLinePlayers()).contains(p.getRealUUID())){
+				System.out.println("SUPPOSED TO OPEN BOOK HERE");
+
 				ItemStack book = new ItemStack(Material.WRITTEN_BOOK);
 				BookMeta bookMeta = (BookMeta) book.getItemMeta();
 
@@ -91,12 +100,17 @@ public class TemplateMapCreatorMapBrowser extends SelectorTemplate {
 
 				bookMeta.setTitle("GUIDELINES");
 				bookMeta.setAuthor("The Relizc Network");
-
-				((CraftPlayer) p).getHandle().openBook(CraftItemStack.asNMSCopy(book));
+				book.setItemMeta(bookMeta);
+				p.closeInventory();
+//				((CraftPlayer) p).getHandle().openBook(CraftItemStack.asNMSCopy(book));
+				BookUtils.openBook(book,p);
 
 			}
 		}
 	}
+
+
+
 	
 }
  

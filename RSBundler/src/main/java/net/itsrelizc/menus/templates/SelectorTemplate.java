@@ -1,5 +1,6 @@
 package net.itsrelizc.menus.templates;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,7 +48,7 @@ public class SelectorTemplate implements TemplateBase {
 	}
 
 	@Override
-	public void onClick(InventoryClickEvent event) {
+	public void onClick(InventoryClickEvent event) throws NoSuchFieldException, InvocationTargetException, NoSuchMethodException, IllegalAccessException, InstantiationException {
 		
 		if (event.getSlot() == arrowleft && curpage != 0) {
 			curpage --;

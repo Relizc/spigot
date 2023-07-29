@@ -3,6 +3,8 @@ package net.itsrelizc.gamemodes.mapbuilding;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -59,7 +61,7 @@ public class UMapBuilding {
 
 	public static List<ItemStack> a(Player player) {
 		JSONArray all = (JSONArray) DataManager.loadPureJsonFromDb("map_contrib_db\\involvement.json").get(player.getRealUUID());
-		
+
 		if (all == null) {
 			return null;
 		}
@@ -82,16 +84,25 @@ public class UMapBuilding {
 		
 		return d;
 	}
-	public static List<String> guideLinePlayers(){
-		JSONArray players = (JSONArray) DataManager.loadPureJsonFromDb("map_contrib_db\\guidelines.json").get(1);
+	public static Set guideLinePlayers(){
+		JSONObject players = (JSONObject) DataManager.loadPureJsonFromDb("map_contrib_db\\guidelines.json");
 
-		return (List) players;
+
+		if(players==null) return null;
+
+		return  (players.keySet());
 
 	}
+	public static JSONObject guideLinePlayers(String condition){
+		if(Objects.equals(condition, "JSONObject")){
+			return DataManager.loadPureJsonFromDb("map_contrib_db\\guidelines.json");
+		}
+		return null;
+	}
 	public static void addGuideLinePlayer(Player p) throws FileNotFoundException {
-		List<String> pp = guideLinePlayers();
-		pp.add(p.getRealUUID());
-		JSONObject obj = (JSONObject) pp;
+		JSONObject obj = guideLinePlayers("JSONObject");
+		obj.put(p.getRealUUID(),true);
+
 
 		DataManager.savePureJsonToDb("map_contrib_db\\guidelines.json",obj);
 	}

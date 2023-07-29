@@ -6,9 +6,11 @@ import org.bukkit.inventory.Inventory;
 
 import net.itsrelizc.menus.ClassicMenu;
 
+import java.lang.reflect.InvocationTargetException;
+
 public interface TemplateBase {
 	
-	public void onClick(InventoryClickEvent event);
+	public void onClick(InventoryClickEvent event) throws NoSuchFieldException, InvocationTargetException, NoSuchMethodException, IllegalAccessException, InstantiationException;
 	
 	public void onClose(InventoryCloseEvent event);
 

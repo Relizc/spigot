@@ -16,6 +16,8 @@ import org.bukkit.inventory.meta.ItemMeta;
 import net.itsrelizc.menus.templates.MenuTemplate;
 import net.itsrelizc.menus.templates.TemplateBase;
 
+import java.lang.reflect.InvocationTargetException;
+
 public class ClassicMenu implements Listener {
 	
 	public Inventory menu;
@@ -109,7 +111,7 @@ public class ClassicMenu implements Listener {
 	}
 	
 	@EventHandler
-	public void click(InventoryClickEvent event) {
+	public void click(InventoryClickEvent event) throws NoSuchFieldException, InvocationTargetException, NoSuchMethodException, IllegalAccessException, InstantiationException {
 		event.setCancelled(true);
 		if (event.getClick() == ClickType.DOUBLE_CLICK) {
 			return;
