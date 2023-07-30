@@ -17,7 +17,7 @@ public class CommandFill implements CommandExecutor, TabCompleter {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if(commandSender instanceof Player){
             Player p = (Player) commandSender;
-            if(BuildersWand.playerSpaceHashMap.keySet().contains(p)){
+            if(!BuildersWand.playerSpaceHashMap.isEmpty()&&BuildersWand.playerSpaceHashMap.containsKey(p)){
                 Space space = BuildersWand.playerSpaceHashMap.get(p);
                 if(space.getPos1()==null){
                     p.sendMessage("§4Missing position 1");

@@ -8,6 +8,7 @@ import java.util.List;
 import Commands.CommandFill;
 import Commands.CommandGiveWand;
 import Commands.CommandInfo;
+import Items.BuildersWand;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -47,17 +48,24 @@ public final class RSBuild extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         Bukkit.getPluginManager().registerEvents(this, this);
+        Bukkit.getPluginManager().registerEvents(new BuildersWand(),this);
         Bukkit.getPluginCommand("buildinfo").setExecutor(new CommandInfo());
         Bukkit.getPluginCommand("fastfill").setExecutor(new CommandFill());
         Bukkit.getPluginCommand("givewand").setExecutor(new CommandGiveWand());
         Grouping.showPrefix = true;
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getPluginManager().getPlugin("RSBuild"), new Runnable() {
+            @Override
+            public void run() {
+                Bukkit.broadcastMessage("§5SERVER SAVING");
+            }
+        },600,12000);
     }
 
     public void saveWorlds(String world) {
         getLogger().info("Saving and Copying " + world);
         Bukkit.getServer().unloadWorld(Bukkit.getWorld(world), true);
         File sourceDirectory = new File(System.getProperty("user.dir") + "\\" + world);
-        File destinationDirectory = new File(new File(System.getProperty("user.dir")).getParentFile().getParentFile().toString() + "\\templates\\_worlds\\_" + "world" + "_buildpublic");
+        File destinationDirectory = new File(new File(System.getProperty("user.dir")).getParentFile().getParentFile().toString() + "\\templates\\_worlds\\_" + world + "_buildpublic");
         try {
             FileUtils.copyDirectory(sourceDirectory, destinationDirectory);
         } catch (IOException ignored) {

@@ -1,5 +1,6 @@
 package BlockPlacement;
 
+import net.minecraft.server.v1_8_R3.Block;
 import net.minecraft.server.v1_8_R3.BlockPosition;
 import net.minecraft.server.v1_8_R3.IBlockData;
 import org.bukkit.Material;
@@ -11,7 +12,7 @@ public class FastBlockPlacement {
         net.minecraft.server.v1_8_R3.World nmsWorld = ((CraftWorld) world).getHandle();
         net.minecraft.server.v1_8_R3.Chunk nmsChunk = nmsWorld.getChunkAt(x >> 4, z >> 4);
         BlockPosition bp = new BlockPosition(x, y, z);
-        IBlockData ibd = (IBlockData) net.minecraft.server.v1_8_R3.Block.getById(material.getId());
+        IBlockData ibd = net.minecraft.server.v1_8_R3.Block.getByCombinedId(material.getId());
 
         nmsChunk.a(bp, ibd);
     }

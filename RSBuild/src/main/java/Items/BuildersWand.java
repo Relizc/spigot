@@ -15,14 +15,15 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class BuildersWand implements Listener {
 
-    public static HashMap<Player,Space> playerSpaceHashMap;
+    public static Map<Player,Space> playerSpaceHashMap = new HashMap<>();
     public static ItemStack getWand(){
         ItemStack wand = new ItemStack(Material.BLAZE_ROD);
         ItemMeta meta = wand.getItemMeta();
-        meta.setDisplayName("§k##§r§gBUILDER'S WAND§0§k##");
+        meta.setDisplayName("§k##§r§gBUILDER'S WAND§f§k##");
         List<String> lore = new ArrayList<>();
         lore.add("Works just like the worldedit wand!");
         lore.add("use the command /fillwand to fill in the space.");
@@ -35,7 +36,7 @@ public class BuildersWand implements Listener {
         if(e.getPlayer().getItemInHand().equals(getWand())){
             e.setCancelled(true);
             Player p = e.getPlayer();
-            if(!playerSpaceHashMap.keySet().contains(e.getPlayer())){
+            if(playerSpaceHashMap.isEmpty()||!playerSpaceHashMap.containsKey(e.getPlayer())){
                 playerSpaceHashMap.put(e.getPlayer(),new Space());
             }
             if(playerSpaceHashMap.get(p).getPos1()!=null&&playerSpaceHashMap.get(p).getPos2()==null){
