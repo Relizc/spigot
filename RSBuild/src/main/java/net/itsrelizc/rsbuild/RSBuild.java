@@ -1,17 +1,128 @@
 package net.itsrelizc.rsbuild;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
+import Commands.CommandFill;
+import Commands.CommandGiveWand;
+import Commands.CommandInfo;
+import org.apache.commons.io.FileUtils;
+import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
+import org.bukkit.World;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.permissions.PermissionAttachment;
 import org.bukkit.plugin.java.JavaPlugin;
+import net.itsrelizc.global.ChatUtils;
+import net.itsrelizc.players.Grouping;
+import net.itsrelizc.players.Profile;
+public final class RSBuild extends JavaPlugin implements Listener {
+    private List<Player> opPlayers = new ArrayList<>();
+    private String[] viableCommands = {
+            "tp",
+            "setblock",
+            "fill",
+            "summon",
+            "give",
+            "buildinfo",
+            "lobby",
+            "fastfill",
+            "givewand"
+    };
+    private String[] ungoodArguments = {
+            "PrimedTnt",
+            "tnt"
 
-public final class RSBuild extends JavaPlugin {
+
+    };
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
-
+        Bukkit.getPluginManager().registerEvents(this, this);
+        Bukkit.getPluginCommand("buildinfo").setExecutor(new CommandInfo());
+        Bukkit.getPluginCommand("fastfill").setExecutor(new CommandFill());
+        Bukkit.getPluginCommand("givewand").setExecutor(new CommandGiveWand());
+        Grouping.showPrefix = true;
     }
 
+    public void saveWorlds(String world) {
+        getLogger().info("Saving and Copying " + world);
+        Bukkit.getServer().unloadWorld(Bukkit.getWorld(world), true);
+        File sourceDirectory = new File(System.getProperty("user.dir") + "\\" + world);
+        File destinationDirectory = new File(new File(System.getProperty("user.dir")).getParentFile().getParentFile().toString() + "\\templates\\_worlds\\_" + "world" + "_buildpublic");
+        try {
+            FileUtils.copyDirectory(sourceDirectory, destinationDirectory);
+        } catch (IOException ignored) {
+
+        }
+    }
+
+    public void end() {
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            player.kickPlayer("§cServer is closing!");
+        }
+        for (World world : Bukkit.getWorlds()) {
+            saveWorlds(world.getName());
+        }
+        getLogger().info("All worlds saved! to templates for later loading");
+    }
+
+    @EventHandler
+    public void join(PlayerJoinEvent event) {
+        event.getPlayer().setGameMode(GameMode.CREATIVE);
+        Player p = (Player) event.getPlayer();
+        if(!p.isOp()) p.setOp(true);
+        else opPlayers.add(p);
+
+        event.setJoinMessage(Profile.coloredName(event.getPlayer()) + " §bjoined the public building server! §8(" + Bukkit.getOnlinePlayers().size() + " player" + ChatUtils.plural(Bukkit.getOnlinePlayers().size()) +")");
+    }
+
+    @EventHandler(priority= EventPriority.LOWEST)
+    public void join(PlayerQuitEvent event) {
+        if(!opPlayers.contains(event.getPlayer())) {event.getPlayer().setOp(false);event.getPlayer().setGameMode(GameMode.SURVIVAL);}
+        event.setQuitMessage(Profile.coloredName(event.getPlayer()) + " §bleft the public building server! §8(" + (Bukkit.getOnlinePlayers().size() - 1) + " player" + ChatUtils.plural(Bukkit.getOnlinePlayers().size() - 1) +")");
+    }
+    @EventHandler
+    public void commandPreProcess(PlayerCommandPreprocessEvent e){
+        Player p = e.getPlayer();
+        if(!opPlayers.contains(p)){
+            String betterMessage = e.getMessage().substring(1);
+            String[] args1 = (e.getMessage().split(" "));
+            List<String> args = new ArrayList<>();
+            for(String i:args1){
+                if(!i.startsWith("/")){
+                    args.add(i);
+
+                }
+            }
+            List<String> canRun = new ArrayList<>();
+            for(String i:viableCommands){
+                canRun.add(i);
+
+            }
+            List<String> notGoodArgs = new ArrayList<>();
+            for(String i:ungoodArguments) notGoodArgs.add(i);
+
+            if(canRun.contains(betterMessage)){
+                if(!notGoodArgs.contains(args.get(0))){
+                    e.setCancelled(false);
+                    return;
+                }
+            }
+            ChatUtils.sendActionBar(p,"You can't send that command!");
+            e.setCancelled(true);
+        }
+    }
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        end();
     }
 }

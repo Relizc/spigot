@@ -5,3 +5,12 @@ api-version: 1.20
 prefix: [ BUILD ]
 authors: [ Abra6325 ]
 description: This builds things
+commands:
+  buildinfo:
+    description: Opens a book containing vital information on the build
+    usage: /buildinfo
+  fastfill:
+    description: fills the space specified by the builder's wand.
+    usage: /fastfill
+  givewand:
+    description: gives urself a builders wand
