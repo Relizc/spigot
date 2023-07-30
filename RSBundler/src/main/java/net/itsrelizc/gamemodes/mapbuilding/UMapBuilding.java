@@ -101,7 +101,10 @@ public class UMapBuilding {
 	}
 	public static void addGuideLinePlayer(Player p) throws FileNotFoundException {
 		JSONObject obj = guideLinePlayers("JSONObject");
-		obj.put(p.getRealUUID(),true);
+		if(obj!=null)  obj.put(p.getRealUUID(),true);
+		else {obj = new JSONObject();obj.put(p.getRealUUID(),true);}
+		//SESSION EXPIRES IN 5 MINUTES ERIC!!!!
+
 
 
 		DataManager.savePureJsonToDb("map_contrib_db\\guidelines.json",obj);

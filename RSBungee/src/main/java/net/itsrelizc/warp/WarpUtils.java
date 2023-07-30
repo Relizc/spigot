@@ -11,6 +11,7 @@ import java.util.UUID;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
+import net.md_5.bungee.api.connection.Server;
 import net.saltyfishstudios.bungee.ChatUtils;
 
 public class WarpUtils {
@@ -24,7 +25,7 @@ public class WarpUtils {
 	    ServerInfo info = ProxyServer.getInstance().constructServerInfo(ramId + sid, socketAddress, "Relizc Proxy Hehehe", false);
 	    ProxyServer.getInstance().getServers().put(ramId + sid, info);
 	    
-	    while (servers.get(category) == null) {
+	    if (servers.get(category) == null) {
 		    servers.put(category, new ServerCollector());
 	    }
 	    
@@ -60,6 +61,12 @@ public class WarpUtils {
 		ChatUtils.systemMessage(player, "§a§lWARP", "§7Queueing connection to [RS-" + id + "]...");
 		ServerInfo target = ProxyServer.getInstance().getServerInfo(id);
 		player.connect(target);
+	}
+
+	public static void init() {
+		for (ServerCategory c : ServerCategory.values()) {
+			servers.put(c, new ServerCollector());
+		}
 	}
 	
 	public static ServerInfo getRandomDestination(ServerCategory cat) {
