@@ -16,6 +16,7 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
+import jdk.jpackage.internal.WinAppBundler;
 import org.json.simple.JSONObject;
 
 import com.google.common.io.ByteArrayDataInput;
@@ -69,6 +70,8 @@ public class Main extends Plugin implements Listener {
 
 	@Override
     public void onEnable(){
+
+		WarpUtils.init();
 		
 		plugin = this;
 		
