@@ -34,7 +34,9 @@ public class CommandInfo implements CommandExecutor {
                 "\n/setblock" +
                 "\n/fill" +
                 "\n/summon" +
-                "\n/lobby";
+                "\n/lobby" +
+                "\n/fastfill" +
+                "\n/givewand";
         normalPages.add(page1);
         normalPages.add(page1_5);
 
