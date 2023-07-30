@@ -59,6 +59,27 @@ public final class RSBuild extends JavaPlugin implements Listener {
                 Bukkit.broadcastMessage("§5SERVER SAVING");
             }
         },600,12000);
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getPluginManager().getPlugin("RSBuild"), new Runnable() {
+            @Override
+            public void run() {
+                Integer pos1x=-1,pos1y= -1,pos1z= -1,pos2x= -1,pos2y= -1,pos2z = -1;
+                for(Player p:Bukkit.getOnlinePlayers()){
+                    if(!BuildersWand.playerSpaceHashMap.isEmpty()){
+                        if(BuildersWand.playerSpaceHashMap.containsKey(p)){
+
+                            pos1x = BuildersWand.playerSpaceHashMap.get(p).pos1x;
+                            pos1y = BuildersWand.playerSpaceHashMap.get(p).pos1y;
+                            pos1z = BuildersWand.playerSpaceHashMap.get(p).pos1z;
+                            pos2x = BuildersWand.playerSpaceHashMap.get(p).pos2x;
+                            pos2y = BuildersWand.playerSpaceHashMap.get(p).pos2y;
+                            pos2z = BuildersWand.playerSpaceHashMap.get(p).pos2z;
+                        }
+                    }
+                    ChatUtils.sendActionBar(p,"P1:"+pos1x+" "+pos1y+" "+pos1z+"|P2:"+pos2x+" "+pos2y+" "+pos2z);
+                }
+
+            }
+        },0,1);
     }
 
     public void saveWorlds(String world) {

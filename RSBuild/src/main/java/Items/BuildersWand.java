@@ -7,6 +7,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
@@ -26,7 +27,7 @@ public class BuildersWand implements Listener {
         meta.setDisplayName("§k##§r§gBUILDER'S WAND§f§k##");
         List<String> lore = new ArrayList<>();
         lore.add("Works just like the worldedit wand!");
-        lore.add("use the command /fillwand to fill in the space.");
+        lore.add("use the command /fastfill to fill in the space.");
         meta.setLore(lore);
         wand.setItemMeta(meta);
         return wand;
@@ -58,11 +59,12 @@ public class BuildersWand implements Listener {
                 Integer x = e.getBlock().getX();
                 Integer y = e.getBlock().getY();
                 Integer z = e.getBlock().getZ();
+                Integer[] x2 = playerSpaceHashMap.get(p).getPos2();
                 p.sendMessage("§6Setting position 1 to "+x+" "+y+" "+z);
-                p.sendMessage("§4 Set position 2 to null(click again to set to a new position)");
-                playerSpaceHashMap.get(p).setPos2(null,null,null);
+                p.sendMessage("§4Swapping poisitions 1 and 2...");
+                playerSpaceHashMap.get(p).setPos2(x,y,z);
 
-                playerSpaceHashMap.get(p).setPos1(x,y,z);
+                playerSpaceHashMap.get(p).setPos1(x2[0],x2[1],x2[2]);
             }
         }
     }
@@ -70,7 +72,7 @@ public class BuildersWand implements Listener {
     public void onShiftRightClick(PlayerInteractEvent e){
         Player p = e.getPlayer();
         if(p.getItemInHand() == getWand()){
-            if(p.isSneaking()){
+            if(p.isSneaking()&&e.getAction()== Action.RIGHT_CLICK_AIR){
                 playerSpaceHashMap.get(p).setPos1(null,null,null);
                 playerSpaceHashMap.get(p).setPos2(null,null,null);
                 p.sendMessage("§3Cleared all positions.");
