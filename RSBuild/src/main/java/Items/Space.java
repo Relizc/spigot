@@ -1,8 +1,14 @@
 package Items;
 
+import BlockPlacement.BlockAction;
+import BlockPlacement.BlockPlaceUtils;
 import BlockPlacement.FastBlockPlacement;
+import net.minecraft.server.v1_8_R3.Block;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+
+import java.util.Stack;
 
 public class Space {
     public Integer pos1x;
@@ -52,16 +58,29 @@ public class Space {
         Integer maxX = Math.max(pos1x, pos2x);
         Integer maxY = Math.max(pos1y, pos2y);
         Integer maxZ = Math.max(pos1z, pos2z);
+        if(BlockPlaceUtils.playerBlockactions==null|| !BlockPlaceUtils.playerBlockactions.containsKey(user)) BlockPlaceUtils.playerBlockactions.put(user,new Stack<BlockAction>());
+        BlockPlaceUtils.playerBlockactions.get(user).push(new BlockAction());
+
+        BlockPlaceUtils.playerBlockactions.get(user).peek().setStructureSize(maxY-minY+3,maxX-minx+3,maxZ-minZ+3);
+        if(BlockPlaceUtils.playerUndoBlockLocations==null||
+        !BlockPlaceUtils.playerUndoBlockLocations.containsKey(user)) BlockPlaceUtils.playerUndoBlockLocations.put(user,new Stack<Location>());
+        BlockPlaceUtils.playerUndoBlockLocations.get(user).push(new Location(user.getWorld(),minx-1,minY-1,minZ-1));  //Location(user.getWorld(),minx-1,minY-1,minZ-1)
         for (int i = minx; i <= maxX; i++) {
             for (int j = minY; j <= maxY; j++) {
                 for (int k = minZ; k <= maxZ; k++) {
 
+                    BlockPlaceUtils.playerBlockactions.get(user).peek().structure[j-minY][i-minx][k-minZ]=new MaterialAndData();
 
+                    BlockPlaceUtils.playerBlockactions.get(user).peek().structure[j-minY][i-minx][k-minZ].material = user.getWorld().getBlockAt(i,j,k).getType();
+                    BlockPlaceUtils.playerBlockactions.get(user).peek().structure[j-minY][i-minx][k-minZ].data = user.getWorld().getBlockAt(i,j,k).getData();
 //                    FastBlockPlacement.setBlockInNativeChunk(user.getWorld(), i, j, k, material);
                     user.getWorld().getBlockAt(i,j,k).setType(material);
+
+
                 }
             }
         }
+
 
 
     }
@@ -77,9 +96,18 @@ public class Space {
         Integer maxX = Math.max(pos1x, pos2x);
         Integer maxY = Math.max(pos1y, pos2y);
         Integer maxZ = Math.max(pos1z, pos2z);
+        if(BlockPlaceUtils.playerBlockactions==null|| !BlockPlaceUtils.playerBlockactions.containsKey(user)) BlockPlaceUtils.playerBlockactions.put(user,new Stack<BlockAction>());
+        BlockPlaceUtils.playerBlockactions.get(user).push(new BlockAction());
+        BlockPlaceUtils.playerBlockactions.get(user).peek().setStructureSize(maxY-minY+3,maxX-minx+3,maxZ-minZ+3);
+        if(BlockPlaceUtils.playerUndoBlockLocations==null||
+                !BlockPlaceUtils.playerUndoBlockLocations.containsKey(user)) BlockPlaceUtils.playerUndoBlockLocations.put(user,new Stack<Location>());
+        BlockPlaceUtils.playerUndoBlockLocations.get(user).push(new Location(user.getWorld(),minx-1,minY-1,minZ-1));
         for (int i = minx; i <= maxX; i++) {
             for (int j = minY; j <= maxY; j++) {
                 for (int k = minZ; k <= maxZ; k++) {
+                    BlockPlaceUtils.playerBlockactions.get(user).peek().structure[j-minY][i-minx][k-minZ]=new MaterialAndData();
+                    BlockPlaceUtils.playerBlockactions.get(user).peek().structure[j-minY][i-minx][k-minZ].material = user.getWorld().getBlockAt(i,j,k).getType();
+                    BlockPlaceUtils.playerBlockactions.get(user).peek().structure[j-minY][i-minx][k-minZ].data = user.getWorld().getBlockAt(i,j,k).getData();
                     user.getWorld().getBlockAt(i,j,k).setType(material);
 
                     user.getWorld().getBlockAt(i,j,k).setData(data);
@@ -88,6 +116,43 @@ public class Space {
                 }
             }
         }
+
+
+    }
+    public void quickCopy(Player user) {
+        if (pos1x == null || pos1y == null || pos1z == null || pos2x == null || pos2y == null || pos2z == null) {
+            user.sendMessage("§4 ERROR: missing coordinates");
+            return;
+        }
+        Integer minx = Math.min(pos1x, pos2x);
+        Integer minY = Math.min(pos1y, pos2y);
+        Integer minZ = Math.min(pos1z, pos2z);
+        Integer maxX = Math.max(pos1x, pos2x);
+        Integer maxY = Math.max(pos1y, pos2y);
+        Integer maxZ = Math.max(pos1z, pos2z);
+        if(BlockPlaceUtils.playerCloneStorage==null|| !BlockPlaceUtils.playerCloneStorage.containsKey(user)) BlockPlaceUtils.playerCloneStorage.put(user,new BlockAction());
+        BlockPlaceUtils.playerCloneStorage.get(user).structure = null;
+        BlockPlaceUtils.playerCloneStorage.get(user).structure= new MaterialAndData[maxY-minY+3][maxX-minx+3][maxZ-minZ+3];
+
+
+
+
+
+        for (int i = minx; i <= maxX; i++) {
+            for (int j = minY; j <= maxY; j++) {
+                for (int k = minZ; k <= maxZ; k++) {
+
+                    BlockPlaceUtils.playerCloneStorage.get(user).structure[j-minY][i-minx][k-minZ]=new MaterialAndData();
+
+                    BlockPlaceUtils.playerCloneStorage.get(user).structure[j-minY][i-minx][k-minZ].material = user.getWorld().getBlockAt(i,j,k).getType();
+                    BlockPlaceUtils.playerCloneStorage.get(user).structure[j-minY][i-minx][k-minZ].data = user.getWorld().getBlockAt(i,j,k).getData();
+//                    FastBlockPlacement.setBlockInNativeChunk(user.getWorld(), i, j, k, material);
+
+
+                }
+            }
+        }
+
 
 
     }

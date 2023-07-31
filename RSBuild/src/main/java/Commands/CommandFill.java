@@ -37,6 +37,10 @@ public class CommandFill implements CommandExecutor, TabCompleter {
                     p.sendMessage("§4No block named "+blockString);
                     return false;
                 }
+                if(space.getVolume()>1000000){
+                    p.sendMessage("§You can't fill more than one million blocks at a time!");
+                    return false;
+                }
                 p.sendMessage("§gFilling between "+space.pos1x+" "+space.pos1y+" "+space.pos1z+
                         " and "+space.pos2x+" "+space.pos2y+" "+space.pos2z+"("+space.getVolume()+" blocks"+") with "+block.name());
                 if(strings.length ==2){
@@ -49,11 +53,13 @@ public class CommandFill implements CommandExecutor, TabCompleter {
                         return false;
                     }
                     space.fill(p,block,data);
+                    p.sendMessage("§gFill Successful! Use /undoplacement to undo.");
                     return true;
 
 
                 }
                 space.fill(p,block);
+                p.sendMessage("§gFill Successful! Use /undoplacement to undo.");
                 return true;
 
 

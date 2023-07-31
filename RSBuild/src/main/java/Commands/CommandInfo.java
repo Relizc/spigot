@@ -36,7 +36,10 @@ public class CommandInfo implements CommandExecutor {
                 "\n/summon" +
                 "\n/lobby" +
                 "\n/fastfill" +
-                "\n/givewand";
+                "\n/givewand" +
+                "\n/fastclone" +
+                "\nplacecopied" +
+                "\nrotateleft";
         normalPages.add(page1);
         normalPages.add(page1_5);
 

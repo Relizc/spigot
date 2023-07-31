@@ -5,9 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import Commands.CommandFill;
-import Commands.CommandGiveWand;
-import Commands.CommandInfo;
+import Commands.*;
 import Items.BuildersWand;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
@@ -36,7 +34,14 @@ public final class RSBuild extends JavaPlugin implements Listener {
             "buildinfo",
             "lobby",
             "fastfill",
-            "givewand"
+            "givewand",
+            "undoplacement",
+            "l",
+            "ragequit",
+            "setpos",
+            "fastclone",
+            "placecopied",
+            "rotateleft"
     };
     private String[] ungoodArguments = {
             "PrimedTnt",
@@ -52,6 +57,11 @@ public final class RSBuild extends JavaPlugin implements Listener {
         Bukkit.getPluginCommand("buildinfo").setExecutor(new CommandInfo());
         Bukkit.getPluginCommand("fastfill").setExecutor(new CommandFill());
         Bukkit.getPluginCommand("givewand").setExecutor(new CommandGiveWand());
+        Bukkit.getPluginCommand("undoplacement").setExecutor(new CommandUndo());
+        Bukkit.getPluginCommand("setpos").setExecutor(new CommandSetpos());
+        Bukkit.getPluginCommand("fastclone").setExecutor(new CommandfastCopy());
+        Bukkit.getPluginCommand("placecopied").setExecutor(new Commandplacecopied());
+        Bukkit.getPluginCommand("rotateleft").setExecutor(new CommandRotateLeft());
         Grouping.showPrefix = true;
         Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getPluginManager().getPlugin("RSBuild"), new Runnable() {
             @Override

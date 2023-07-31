@@ -14,3 +14,14 @@ commands:
     usage: /fastfill
   givewand:
     description: gives urself a builders wand
+  undoplacement:
+    description: undos your last placement.
+  setpos:
+    description: sets the position
+    usage: /setpos <position 1 or 2>
+  fastclone:
+    description: clone
+  placecopied:
+    description: places copied
+  rotateleft:
+    description: rotates copied left.
