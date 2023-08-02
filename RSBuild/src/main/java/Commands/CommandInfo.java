@@ -38,8 +38,8 @@ public class CommandInfo implements CommandExecutor {
                 "\n/fastfill" +
                 "\n/givewand" +
                 "\n/fastclone" +
-                "\nplacecopied" +
-                "\nrotateleft";
+                "\n/placecopied" +
+                "\n/rotateleft&/rotatevertical";
         normalPages.add(page1);
         normalPages.add(page1_5);
 

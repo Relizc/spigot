@@ -25,3 +25,9 @@ commands:
     description: places copied
   rotateleft:
     description: rotates copied left.
+  rotatevertical:
+    description: rotates vertically
+  spawnstruct:
+    description: spawns structure
+    usage: /spawnstruct <cyl/rect/sphere> <material> <optional byte data> <arguments>
+
