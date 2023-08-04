@@ -37,8 +37,8 @@ public class CommandFill implements CommandExecutor, TabCompleter {
                     p.sendMessage("§4No block named "+blockString);
                     return false;
                 }
-                if(space.getVolume()>1000000){
-                    p.sendMessage("§You can't fill more than one million blocks at a time!");
+                if(space.getVolume()>1000000000){
+                    p.sendMessage("§You can't fill more than one billion blocks at a time!");
                     return false;
                 }
                 p.sendMessage("§gFilling between "+space.pos1x+" "+space.pos1y+" "+space.pos1z+

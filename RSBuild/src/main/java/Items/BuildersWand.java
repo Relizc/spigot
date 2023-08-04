@@ -40,45 +40,26 @@ public class BuildersWand implements Listener {
             if(playerSpaceHashMap.isEmpty()||!playerSpaceHashMap.containsKey(e.getPlayer())){
                 playerSpaceHashMap.put(e.getPlayer(),new Space());
             }
-            if(playerSpaceHashMap.get(p).getPos1()!=null&&playerSpaceHashMap.get(p).getPos2()==null){
-                Integer x = e.getBlock().getX();
-                Integer y = e.getBlock().getY();
-                Integer z = e.getBlock().getZ();
-
-                p.sendMessage("§6Setting position 2 to "+x+" "+y+" "+z);
-                p.sendMessage("§4§lPosition 1 and 2 are both set. Shift right click to clear both positions.");
-                playerSpaceHashMap.get(p).setPos2(x,y,z);
-
-            }else if(playerSpaceHashMap.get(p).getPos1()==null&&playerSpaceHashMap.get(p).getPos2()==null){
-                Integer x = e.getBlock().getX();
-                Integer y = e.getBlock().getY();
-                Integer z = e.getBlock().getZ();
-                p.sendMessage("§6Setting position 1 to "+x+" "+y+" "+z);
-                playerSpaceHashMap.get(p).setPos1(x,y,z);
-            }else if(playerSpaceHashMap.get(p).getPos1()!=null&&playerSpaceHashMap.get(p).getPos2()!=null){
-                Integer x = e.getBlock().getX();
-                Integer y = e.getBlock().getY();
-                Integer z = e.getBlock().getZ();
-                Integer[] x2 = playerSpaceHashMap.get(p).getPos2();
-                p.sendMessage("§6Setting position 1 to "+x+" "+y+" "+z);
-                p.sendMessage("§4Swapping poisitions 1 and 2...");
-                playerSpaceHashMap.get(p).setPos2(x,y,z);
-
-                playerSpaceHashMap.get(p).setPos1(x2[0],x2[1],x2[2]);
-            }
+            Integer x = e.getBlock().getX();
+            Integer y = e.getBlock().getY();
+            Integer z = e.getBlock().getZ();
+            p.sendMessage("§6Setting position 1 to "+x+" "+y+" "+z);
+            playerSpaceHashMap.get(p).setPos1(x,y,z);
         }
     }
     @EventHandler
-    public void onShiftRightClick(PlayerInteractEvent e){
+    public void onRClick(PlayerInteractEvent e){
         Player p = e.getPlayer();
-        if(p.getItemInHand() == getWand()){
-            if(p.isSneaking()&&e.getAction()== Action.RIGHT_CLICK_AIR){
-                playerSpaceHashMap.get(p).setPos1(null,null,null);
-                playerSpaceHashMap.get(p).setPos2(null,null,null);
-                p.sendMessage("§3Cleared all positions.");
-
-            }
+        if(p.getItemInHand().equals(getWand())&&e.getAction().equals(Action.RIGHT_CLICK_BLOCK)){
+            if(playerSpaceHashMap.isEmpty()||!playerSpaceHashMap.containsKey(e.getPlayer())){
+                playerSpaceHashMap.put(e.getPlayer(),new Space());}
+            Integer x = e.getClickedBlock().getX();
+            Integer y = e.getClickedBlock().getY();
+            Integer z = e.getClickedBlock().getZ();
+            p.sendMessage("§6Setting position 2 to "+x+" "+y+" "+z);
+            playerSpaceHashMap.get(p).setPos2(x,y,z);
         }
+
     }
 
 }

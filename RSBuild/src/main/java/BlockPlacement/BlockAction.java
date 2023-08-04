@@ -1,6 +1,7 @@
 package BlockPlacement;
 
 import Items.MaterialAndData;
+import org.bukkit.Material;
 
 public class BlockAction {
     public MaterialAndData[][][] structure;
@@ -12,7 +13,7 @@ public class BlockAction {
         for(int ij =0;ij<structure.length;ij++){
             MaterialAndData[][] i = structure[ij];
 
-            MaterialAndData[][] rotted = rotateMatrix(i.length,i[0].length,i);
+            MaterialAndData[][] rotted = rotateArray(i);
             structure[ij] = rotted.clone();
 
         }
@@ -21,52 +22,66 @@ public class BlockAction {
         for(int j=0;j<times;j++){
             for(int ij =0;ij<structure.length;ij++){
                 MaterialAndData[][] i = structure[ij];
-
-                MaterialAndData[][] rotted = rotateMatrix(i.length,i[0].length,i);
+                MaterialAndData[][] rotted = rotateArray(i);
                 structure[ij] = rotted.clone();
 
             }
         }
     }
-
-    MaterialAndData[][] rotateMatrix(int m, int n, MaterialAndData[][] arr1){
-        int row = 0, col = 0;
-        MaterialAndData prev, curr;
-        MaterialAndData[][] arr = arr1.clone();
-
-        while (row < m && col < n) {
-
-            if (row + 1 == m || col + 1 == n)
-                break;
-            prev = arr[row + 1][col];
-            for (int i = col; i < n; i++) {
-                curr = arr[row][i]; arr[row][i] = prev;
-                prev = curr;
-            }
-            row++;
-            for (int i = row; i < m; i++) {
-                curr = arr[i][n - 1]; arr[i][n - 1] = prev;
-                prev = curr;
-            }
-            n--;
-            if (row < m) {
-                for (int i = n - 1; i >= col; i--) {
-                    curr = arr[m - 1][i]; arr[m - 1][i] = prev;
-                    prev = curr;
+    public void RotateUp(){
+        MaterialAndData[][][] convertedList = new MaterialAndData[structure[0][0].length][structure.length][structure[0].length];
+        for(int i=0;i<structure.length;i++){
+            for(int j=0;j<structure[0].length;j++){
+                for(int k=0;k<structure[0][0].length;k++){
+                    convertedList[k][i][j] = structure[i][j][k];
                 }
             }
-            m--;
-            if (col < n) {
-                for (int i = m - 1; i >= row; i--) {
-                    curr = arr[i][col];
-                    arr[i][col] = prev;
-                    prev = curr;
+        }
+        for(int i=0;i<convertedList.length;i++){
+            MaterialAndData[][] toConvert = convertedList[i];
+            MaterialAndData[][] rotted = rotateArray(toConvert);
+            convertedList[i] = rotted.clone();
+        }
+        MaterialAndData[][][] convertionBuffer = new MaterialAndData[structure.length][structure[0].length][structure[0][0].length];
+        for(int i=0;i<structure[0][0].length;i++){
+            for(int j=0;j<structure[0].length;j++){
+                for(int k=0;k<structure.length;k++){
+                    convertionBuffer[k][j][i] = convertedList[i][j][k];
+
                 }
             }
-            col++;
+        }
+        structure = convertionBuffer.clone();
+
     }
-    return arr.clone();
+    void reverse(MaterialAndData a[], int n)
+    {
+        int i;
+        MaterialAndData t;
+        for (i = 0; i < n / 2; i++) {
+            t = a[i];
+            a[i] = a[n - i - 1];
+            a[n - i - 1] = t;
+        }
 
+
+    }
+    MaterialAndData[][] rotateArray(MaterialAndData[][] toD1){
+        MaterialAndData[][] toD = toD1.clone();
+        MaterialAndData[][] ret = new MaterialAndData[toD[0].length][toD.length];
+        for(int i=0;i<toD.length;i++){
+            for(int j=0;j<toD[0].length;j++){
+                ret[j][i] = toD[i][j];
+
+            }
+
+
+
+        }
+        for(int i=0;i<ret.length;i++){
+            reverse(ret[i],ret[i].length);
+        }
+        return ret;
     }
 
 }
