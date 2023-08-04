@@ -25,3 +25,5 @@ commands:
     description: places copied
   rotateleft:
     description: rotates copied left.
+  head:
+    description: head
