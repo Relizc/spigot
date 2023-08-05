@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.bukkit.Material;
+import org.bukkit.Server;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
@@ -115,7 +116,15 @@ public class TemplateServerMenu extends MenuTemplate {
 				"§aClick to teleport to the §eNerdial Patrol§a!"
 				));
 		
-		menu.setItem(11, ItemGenerator.generate(Material.BEDROCK, 1, "§7Coming Soon!"));
+		menu.setItem(11, ItemGenerator.generate(Material.STONE_SWORD, 1, "§k##§r§4§mSHITWARS§r§0§k##§r|§1§bBETA",
+				"§7A competitive game similar ",
+				"§7to CSGO where two teams battle.",
+				"§7The army must protect the hostages",
+				"§7while the bandits try to kill them.",
+				"§7At the end, the score is calculated",
+				"§7based on how many hostages are alive.",
+				"",
+				"§aClick to try out the §dBeta Version§r§b!"));
 		menu.setItem(10, ItemGenerator.generate(Material.BEDROCK, 1, "§7Coming Soon!"));
 		menu.setItem(15, ItemGenerator.generate(Material.BEDROCK, 1, "§7Coming Soon!"));
 		menu.setItem(16, ItemGenerator.generate(Material.BEDROCK, 1, "§7Coming Soon!"));
@@ -175,6 +184,8 @@ public class TemplateServerMenu extends MenuTemplate {
 			ClassicMenu menu = new ClassicMenu((Player) event.getWhoClicked(), 5, "Map Contribution", new TemplateMapCreator());
 			menu.setPreviousPage(this.parent);
 			menu.show();
+		}else if(event.getSlot() == 11){
+			WarpUtils.send((Player)event.getWhoClicked(), ServerCategory.GAME_SHITWARS);
 		}
 		
 		if (event.getSlot() == 44) {

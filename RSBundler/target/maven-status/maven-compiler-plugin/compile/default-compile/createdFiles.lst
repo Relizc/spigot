@@ -66,6 +66,7 @@ net\itsrelizc\global\Reflections$MethodInvoker.class
 net\itsrelizc\players\Registery.class
 net\itsrelizc\npc\NPC$2.class
 net\itsrelizc\players\Rank.class
+net\itsrelizc\nerdbot\patrol\PatrolUtils.class
 net\itsrelizc\players\NameChanger$NameTagColor.class
 net\itsrelizc\nerdbot\move\ApplicalMoveDelta.class
 net\itsrelizc\nerdbot\move\flight\Flight.class
