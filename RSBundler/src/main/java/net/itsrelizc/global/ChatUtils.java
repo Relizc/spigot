@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
 
+import org.apache.commons.lang.RandomStringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -126,6 +127,10 @@ public class ChatUtils {
 		} else {
 			component.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(hover).create()));
 		}
+	}
+	
+	public static String randomString(int len) {
+		return RandomStringUtils.randomAlphabetic(len);
 	}
 	
 	public static List<String> fromGeneticString(String list[]) {

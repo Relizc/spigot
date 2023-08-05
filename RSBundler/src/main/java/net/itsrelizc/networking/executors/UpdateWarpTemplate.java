@@ -53,6 +53,8 @@ public class UpdateWarpTemplate implements Runnable {
 				it.addUnsafeEnchantment(Enchantment.ARROW_DAMAGE, 1);
 			} else if (typ.equalsIgnoreCase("game-bridge")) {
 				it = new ItemStack(Material.STAINED_CLAY, 1, (byte) 14);
+			} else if (typ.equalsIgnoreCase("public-build")) {
+				it = new ItemStack(Material.BLAZE_ROD, 1);
 			}
 			
 			ItemMeta im = it.getItemMeta();

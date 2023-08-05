@@ -64,8 +64,12 @@ public final class RSBuild extends JavaPlugin implements Listener {
         Bukkit.getPluginCommand("fastclone").setExecutor(new CommandfastCopy());
         Bukkit.getPluginCommand("placecopied").setExecutor(new Commandplacecopied());
         Bukkit.getPluginCommand("rotateleft").setExecutor(new CommandRotateLeft());
+
+        Bukkit.getPluginCommand("head").setExecutor(new CommandHead());
+
         Bukkit.getPluginCommand("rotatevertical").setExecutor(new CommandRotateVertical());
         Bukkit.getPluginCommand("spawnstruct").setExecutor(new CommandSpawnStruct());
+
 
         Grouping.showPrefix = true;
         Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getPluginManager().getPlugin("RSBuild"), new Runnable() {
@@ -114,6 +118,7 @@ public final class RSBuild extends JavaPlugin implements Listener {
             player.kickPlayer("§cServer is closing!");
         }
         for (World world : Bukkit.getWorlds()) {
+        	world.save();
             saveWorlds(world.getName());
         }
         getLogger().info("All worlds saved! to templates for later loading");

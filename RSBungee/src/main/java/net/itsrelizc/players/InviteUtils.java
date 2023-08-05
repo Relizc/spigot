@@ -63,6 +63,11 @@ public class InviteUtils {
 	public static InviteToken redeemToken(ProxiedPlayer redemmer, String token) {
 		InviteToken t = findByToken(token);
 		
+		if (t == null) System.out.print(1);
+		if (t.reciever != redemmer) System.out.print(2);
+		if (System.currentTimeMillis() > t.expires) System.out.print(3);
+		if (t.sender.getServer().getInfo().getName() != t.target.getName()) System.out.print(4);
+		
 		if (t == null) return null; // Already redeemed!
 		if (t.reciever != redemmer) return null; // Not yours!
 		if (System.currentTimeMillis() > t.expires) return null; // Expired!
