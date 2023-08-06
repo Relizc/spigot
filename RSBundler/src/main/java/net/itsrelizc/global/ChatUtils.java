@@ -81,6 +81,10 @@ public class ChatUtils {
 	public static void systemMessage(Player player, String channel, String message) {
 		player.sendMessage(channel.toUpperCase() + " §r§8> §r" + message);
 	}
+	
+	public static void systemMessage(Player player, ChatColor color, String channel, String message) {
+		player.sendMessage(color + "§l" + channel.toUpperCase() + " §r§8> §r" + message);
+	}
 
 	public static void systemMessage(CommandSender sender, String channel, String message) {
 		sender.sendMessage(channel.toUpperCase() + " §r§8> §r" + message);
@@ -127,6 +131,10 @@ public class ChatUtils {
 		} else {
 			component.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(hover).create()));
 		}
+	}
+	
+	public static void attachOpenURL(TextComponent component, String url) {
+		component.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, url));
 	}
 	
 	public static String randomString(int len) {

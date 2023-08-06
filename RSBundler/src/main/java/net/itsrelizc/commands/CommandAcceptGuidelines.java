@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.util.List;
 
 public class CommandAcceptGuidelines implements IBaseCommand {
+	
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         Player p = (Player) commandSender;

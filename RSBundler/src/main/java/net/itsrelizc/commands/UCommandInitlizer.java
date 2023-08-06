@@ -26,6 +26,8 @@ public class UCommandInitlizer {
 		
 		registerCommand("menu2", new CommandOpenSelectorMenu());
 		registerCommand("acceptGuideLine", new CommandAcceptGuidelines());
+		
+		registerCommand("worldoption", new CommandWorldOption());
 	}
 
 	public static void registerCommand(String s, IBaseCommand command) {

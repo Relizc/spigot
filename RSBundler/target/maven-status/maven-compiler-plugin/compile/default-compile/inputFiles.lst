@@ -16,6 +16,7 @@ D:\spigot\RSBundler\src\main\java\net\itsrelizc\hooks\SimplePacketHandler.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\players\Registery.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\players\party\Party.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\networking\CommunicationInputGroup.java
+D:\spigot\RSBundler\src\main\java\net\itsrelizc\commands\BaseCommand.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\players\locale\Locale.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\menus\templates\TemplateMapCreator.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\menus\ClassicMenu.java
@@ -51,6 +52,7 @@ D:\spigot\RSBundler\src\main\java\net\itsrelizc\global\MuteUtils.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\networking\executors\SendToCatServer.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\players\GameScoreboard.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\players\Grouping.java
+D:\spigot\RSBundler\src\main\java\net\itsrelizc\commands\ArgumentInfo.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\networking\Components.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\networking\Communication.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\global\TimeHandler.java
@@ -62,6 +64,7 @@ D:\spigot\RSBundler\src\main\java\net\itsrelizc\global\Flags.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\nerdbot\interaction\PlayerOutboundChecker.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\players\Rank.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\bookutils\BookUtils.java
+D:\spigot\RSBundler\src\main\java\net\itsrelizc\commands\CommandWorldOption.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\networking\executors\UpdateWarpTemplate.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\npc\NPC.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\debugger\ShowInvClickSlot.java
@@ -78,6 +81,7 @@ D:\spigot\RSBundler\src\main\java\net\itsrelizc\players\NameChanger.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\server\ULogHandler.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\nerdbot\patrol\PatrolUtils.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\server\QuickScheduler.java
+D:\spigot\RSBundler\src\main\java\net\itsrelizc\world\StandardWorldManager.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\players\Spectator.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\npc\NMSNetworkManager.java
 D:\spigot\RSBundler\src\main\java\net\itsrelizc\global\Global.java
