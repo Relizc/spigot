@@ -15,7 +15,8 @@ public enum ServerCategory {
 	LOBBY_SMP((byte) 0x01, (short) 1, true, "smp"),
 	GAME_BRIDGE((byte) 0x03, (short) 13, true, null, ShuffleType.MORE_PLAYERS_FIRST),
 	SMP((byte) 0x02, (short) 0, false, null),
-	PUBLIC_BUILD((byte) 0x04, (short) 1, false, null);
+	PUBLIC_BUILD((byte) 0x04, (short) 1, false, null),
+	GAME_SHITWARS((byte) 0x05, (short) 69,true,null,ShuffleType.MORE_PLAYERS_FIRST);
 
 	public byte data;
 	public short sub;
