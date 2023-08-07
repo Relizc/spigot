@@ -27,11 +27,11 @@ public class ServerCollector {
 		return this.servers.get(new Random().nextInt(this.servers.size()));
 	}
 	
-	public ServerInfo randomServerWithoutPlayer(ProxiedPlayer player) {
-		if (this.servers.size() <= 1) return null;
+	public static ServerInfo randomServerWithoutPlayer(List<ServerInfo> serv, ProxiedPlayer player) {
+		if (serv.size() <= 1) return null;
 		ServerInfo target = player.getServer().getInfo();
 		while (target == player.getServer().getInfo()) {
-			target = this.servers.get(new Random().nextInt(this.servers.size()));
+			target = serv.get(new Random().nextInt(serv.size()));
 		}
 		return target;
 	}

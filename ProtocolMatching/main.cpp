@@ -1,15 +1,16 @@
 #include <iostream>
+#include <winsock2.h>
+#include <windows.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 using namespace std;
 
 int main() {
-	int n;
-	cin >> n;
+	
+	SOCKET socketfd = socket(AF_INET, SOCK_STREAM, 0);
 
-	int p = 0;
-	for (int i = 0; i < n; i++) {
-		p += i;
-	}
+	return socketfd;
 
-	cout << p << endl;
 }

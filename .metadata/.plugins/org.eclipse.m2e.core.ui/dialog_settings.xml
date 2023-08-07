@@ -47,10 +47,12 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="net.itsrelizc.protocol"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="matchmaker"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -61,6 +63,7 @@
 			<item value="[name]"/>
 		</list>
 		<list key="version">
+			<item value="1.0.0"/>
 			<item value="0.0.1-SNAPSHOT"/>
 		</list>
 	</section>

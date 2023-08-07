@@ -1,2 +1,4 @@
 ﻿  main.cpp
-  ProtocolMatching.vcxproj -> D:\spigot\ProtocolMatching\x64\Debug\ProtocolMatching.exe
+D:\spigot\ProtocolMatching\main.cpp(11,15): warning C4244: 'initializing': conversion from 'SOCKET' to 'int', possible loss of data
+main.obj : error LNK2019: unresolved external symbol __imp_socket referenced in function main
+D:\spigot\ProtocolMatching\x64\Debug\ProtocolMatching.exe : fatal error LNK1120: 1 unresolved externals

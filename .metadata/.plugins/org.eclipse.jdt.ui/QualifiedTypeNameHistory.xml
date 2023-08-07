@@ -48,13 +48,13 @@
     <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
     <fullyQualifiedTypeName name="org.bukkit.event.Listener"/>
     <fullyQualifiedTypeName name="org.bukkit.plugin.Plugin"/>
-    <fullyQualifiedTypeName name="net.itsrelizc.world.StandardWorldManager"/>
     <fullyQualifiedTypeName name="java.lang.reflect.Field"/>
-    <fullyQualifiedTypeName name="net.md_5.bungee.api.chat.TextComponent"/>
     <fullyQualifiedTypeName name="net.itsrelizc.global.ChatUtils"/>
     <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
     <fullyQualifiedTypeName name="net.md_5.bungee.api.chat.ClickEvent.Action"/>
     <fullyQualifiedTypeName name="net.itsrelizc.commands.BaseCommand.ArgumentInfo"/>
     <fullyQualifiedTypeName name="org.bukkit.entity.Player"/>
     <fullyQualifiedTypeName name="org.bukkit.craftbukkit.entity.CraftPlayer"/>
+    <fullyQualifiedTypeName name="net.md_5.bungee.api.chat.TextComponent"/>
+    <fullyQualifiedTypeName name="net.itsrelizc.world.StandardWorldManager"/>
 </qualifiedTypeNameHistroy>
