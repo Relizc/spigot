@@ -22,7 +22,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.command.SimpleCommandMap;
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
+
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -59,6 +59,7 @@ import net.itsrelizc.players.Profile;
 import net.itsrelizc.players.TablistUtils;
 import net.itsrelizc.players.locale.Locale;
 import net.itsrelizc.server.ULogHandler;
+import net.itsrelizc.world.StandardWorldManager;
 import net.minecraft.server.v1_8_R3.IChatBaseComponent.ChatSerializer;
 import net.minecraft.server.v1_8_R3.PacketPlayOutPlayerListHeaderFooter;
 
@@ -143,6 +144,8 @@ public class RawMain extends JavaPlugin implements Listener{
 		Debugger.enable(this);
 		
 		TablistUtils.startTicking();
+		
+		StandardWorldManager.init(this);
 		
 		getLogger().info("Server is working!");
 	}

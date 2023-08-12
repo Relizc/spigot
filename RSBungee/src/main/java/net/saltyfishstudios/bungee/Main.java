@@ -16,7 +16,6 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-import jdk.jpackage.internal.WinAppBundler;
 import org.json.simple.JSONObject;
 
 import com.google.common.io.ByteArrayDataInput;
@@ -130,8 +129,8 @@ public class Main extends Plugin implements Listener {
 	@EventHandler
 	public void kick(ServerKickEvent event) {
 		event.setCancelled(true);
-		ServerCollector s = WarpUtils.servers.get(ServerCategory.LOBBY_MAIN);
-		ServerInfo d = s.randomServerWithoutPlayer(event.getPlayer());
+		List<ServerInfo> s = WarpUtils.servers.get(ServerCategory.LOBBY_MAIN);
+		ServerInfo d = ServerCollector.randomServerWithoutPlayer(s, event.getPlayer());
 		if (d == null) {
 			event.getPlayer().disconnect(event.getKickReason());
 		} else {
@@ -185,8 +184,7 @@ public class Main extends Plugin implements Listener {
 			System.out.print(ProxyServer.getInstance().getPlayers().contains(event.getPlayer()));
 			ServerInfo targ = WarpUtils.getRandomDestination(ServerCategory.LOBBY_MAIN);
 			event.setTarget(targ);
-		}
-		if (event.getPlayer().getServer().getInfo() == event.getTarget()) {
+		} else if (event.getPlayer().getServer().getInfo() == event.getTarget()) {
 			event.setCancelled(true);
 			ChatUtils.systemMessage(event.getPlayer(), "§a§lWARP", "§cCannot connect to §7[RS-" + event.getTarget().getName() + "]§c!");
 			ChatUtils.systemMessage(event.getPlayer(), "§a§lWARP", "§cLooks like you are already on that server!");

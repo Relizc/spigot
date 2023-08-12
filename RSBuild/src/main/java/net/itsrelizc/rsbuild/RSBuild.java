@@ -69,7 +69,9 @@ public final class RSBuild extends JavaPlugin implements Listener {
 
         Bukkit.getPluginCommand("rotatevertical").setExecutor(new CommandRotateVertical());
         Bukkit.getPluginCommand("spawnstruct").setExecutor(new CommandSpawnStruct());
-
+        
+        
+        Bukkit.getPluginManager().registerEvents(new PreventBlockPhysics(), this);
 
         Grouping.showPrefix = true;
         Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getPluginManager().getPlugin("RSBuild"), new Runnable() {

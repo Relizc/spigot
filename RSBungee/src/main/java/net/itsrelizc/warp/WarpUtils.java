@@ -16,7 +16,7 @@ import net.saltyfishstudios.bungee.ChatUtils;
 
 public class WarpUtils {
 	
-	public static Map<ServerCategory, ServerCollector> servers = new HashMap<ServerCategory, ServerCollector>();
+	public static Map<ServerCategory, List<ServerInfo>> servers = new HashMap<ServerCategory, List<ServerInfo>>();
 	public static List<String> allConnectedNames = new ArrayList<String>();
 	
 	public static ServerInfo addServer(ServerCategory category, String ramId, String sid, int port) {
@@ -26,35 +26,43 @@ public class WarpUtils {
 	    ProxyServer.getInstance().getServers().put(ramId + sid, info);
 	    
 	    if (servers.get(category) == null) {
-		    servers.put(category, new ServerCollector());
+		    servers.put(category, new ArrayList<ServerInfo>());
 	    }
 	    
-	    servers.get(category).addServer(info);
+	    servers.get(category).add(info);
 	    
 	    return info;
 	}
 	
 	public static void removeServer(String ramId, String sid) {
+		
 		ServerInfo target = null;
-		ServerCollector c = null;
-		for (ServerCollector col : servers.values()) {
-			boolean f = false;
-			for (ServerInfo inf : col.servers) {
+		List<ServerInfo> n = null;
+		
+		ServerCategory b = null;
+		int r = 0;
+		
+		boolean f = false;
+		
+		for (ServerCategory col : servers.keySet()) {
+			
+			for (ServerInfo inf : servers.get(col)) {
 				if (inf.getName().equalsIgnoreCase(ramId + sid)) {
 					target = inf;
+					n = servers.get(col);
 					f = true;
 					break;
 				}
 			}
 			if (f) {
-				c = col;
+				break;
 			};
 		}
-		removeServer(c, target);
-	}
-	
-	public static void removeServer(ServerCollector col, ServerInfo targ) {
-		col.removeServer(targ);
+		
+		if (f) {
+			n.remove(target);
+		}
+		
 	}
 	
 	public static void connectTo(ProxiedPlayer player, String id) {
@@ -65,12 +73,12 @@ public class WarpUtils {
 
 	public static void init() {
 		for (ServerCategory c : ServerCategory.values()) {
-			servers.put(c, new ServerCollector());
+			servers.put(c, new ArrayList<ServerInfo>());
 		}
 	}
 	
 	public static ServerInfo getRandomDestination(ServerCategory cat) {
-		ServerInfo col = servers.get(cat).servers.get(new Random().nextInt(servers.get(cat).servers.size()));
+		ServerInfo col = servers.get(cat).get(new Random().nextInt(servers.get(cat).size()));
 		return col;
 	}
 

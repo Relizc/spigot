@@ -1,5 +1,7 @@
 package net.itsrelizc.networking.executors;
 
+import java.util.List;
+
 import net.itsrelizc.networking.CommunicationInput;
 import net.itsrelizc.warp.ServerCollector;
 import net.itsrelizc.warp.WarpUtils;
@@ -24,11 +26,8 @@ public class ConnectPlayer implements Runnable {
 		
 		boolean found = false;
 		
-		for (ServerCollector c : WarpUtils.servers.values()) {
-			for (ServerInfo s : c.servers) {
-				System.out.print(s.getName());
-				System.out.print(des);
-				System.out.print(s.getName().equalsIgnoreCase(des));
+		for (List<ServerInfo> c : WarpUtils.servers.values()) {
+			for (ServerInfo s : c) {
 				if (s.getName().equalsIgnoreCase(des)) {
 					ChatUtils.systemMessage(player, "§a§lWARP", "§7Sending you to [RS-" + des + "]...");
 					player.connect(s);

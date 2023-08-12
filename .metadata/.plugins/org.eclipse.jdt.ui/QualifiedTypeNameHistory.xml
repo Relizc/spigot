@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerCommandPreprocessEvent"/>
-    <fullyQualifiedTypeName name="org.bukkit.event.Listener"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="net.itsrelizc.players.Commanding"/>
     <fullyQualifiedTypeName name="org.apache.commons.lang.StringUtils"/>
     <fullyQualifiedTypeName name="net.itsrelizc.networking.Components"/>
@@ -11,11 +8,9 @@
     <fullyQualifiedTypeName name="net.itsrelizc.server.ShutdownManager"/>
     <fullyQualifiedTypeName name="net.itsrelizc.commands.UCommandInitlizer"/>
     <fullyQualifiedTypeName name="net.itsrelizc.server.ULogHandler"/>
-    <fullyQualifiedTypeName name="org.bukkit.plugin.Plugin"/>
     <fullyQualifiedTypeName name="org.bukkit.command.CommandExecutor"/>
     <fullyQualifiedTypeName name="org.bukkit.command.TabCompleter"/>
     <fullyQualifiedTypeName name="net.itsrelizc.commands.IBaseCommand"/>
-    <fullyQualifiedTypeName name="org.bukkit.entity.Player"/>
     <fullyQualifiedTypeName name="net.itsrelizc.nerdbot.report.ReportTypes"/>
     <fullyQualifiedTypeName name="net.itsrelizc.players.DataManager"/>
     <fullyQualifiedTypeName name="java.io.File"/>
@@ -30,23 +25,36 @@
     <fullyQualifiedTypeName name="net.minecraft.network.protocol.game.PacketPlayOutPlayerListHeaderFooter"/>
     <fullyQualifiedTypeName name="net.minecraft.network.chat.IChatBaseComponent.ChatSerializer"/>
     <fullyQualifiedTypeName name="org.bukkit.craftbukkit.v1_19_R1.entity.CraftPlayer"/>
-    <fullyQualifiedTypeName name="net.md_5.bungee.api.chat.TextComponent"/>
     <fullyQualifiedTypeName name="net.md_5.bungee.api.ChatMessageType"/>
     <fullyQualifiedTypeName name="net.itsrelizc.players.locale.Locale"/>
     <fullyQualifiedTypeName name="net.minecraft.network.protocol.game.PacketPlayOutWorldParticles"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="net.itsrelizc.menus.ItemGenerator"/>
-    <fullyQualifiedTypeName name="org.bukkit.Material"/>
     <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerQuitEvent"/>
-    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
-    <fullyQualifiedTypeName name="net.itsrelizc.global.ChatUtils"/>
     <fullyQualifiedTypeName name="net.itsrelizc.nerdbot.patrol.PatrolUtils"/>
     <fullyQualifiedTypeName name="org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer"/>
     <fullyQualifiedTypeName name="net.minecraft.server.PacketPlayOutPlayerInfo"/>
     <fullyQualifiedTypeName name="net.minecraft.server.v1_8_R3.PacketPlayOutPlayerInfo"/>
-    <fullyQualifiedTypeName name="java.lang.reflect.Field"/>
     <fullyQualifiedTypeName name="net.minecraft.server.PacketPlayOutPlayerInfo.EnumPlayerInfoAction"/>
     <fullyQualifiedTypeName name="net.minecraft.server.v1_8_R3.EntityPlayer"/>
     <fullyQualifiedTypeName name="net.itsrelizc.networking.CommunicationType"/>
     <fullyQualifiedTypeName name="net.itsrelizc.networking.Communication"/>
+    <fullyQualifiedTypeName name="org.bukkit.event.block.BlockPhysicsEvent"/>
+    <fullyQualifiedTypeName name="org.bukkit.Material"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.bukkit.event.EventHandler"/>
+    <fullyQualifiedTypeName name="org.bukkit.event.weather.WeatherChangeEvent"/>
+    <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerCommandPreprocessEvent"/>
+    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
+    <fullyQualifiedTypeName name="org.bukkit.event.Listener"/>
+    <fullyQualifiedTypeName name="org.bukkit.plugin.Plugin"/>
+    <fullyQualifiedTypeName name="java.lang.reflect.Field"/>
+    <fullyQualifiedTypeName name="net.itsrelizc.global.ChatUtils"/>
+    <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
+    <fullyQualifiedTypeName name="net.md_5.bungee.api.chat.ClickEvent.Action"/>
+    <fullyQualifiedTypeName name="net.itsrelizc.commands.BaseCommand.ArgumentInfo"/>
+    <fullyQualifiedTypeName name="org.bukkit.entity.Player"/>
+    <fullyQualifiedTypeName name="org.bukkit.craftbukkit.entity.CraftPlayer"/>
+    <fullyQualifiedTypeName name="net.md_5.bungee.api.chat.TextComponent"/>
+    <fullyQualifiedTypeName name="net.itsrelizc.world.StandardWorldManager"/>
 </qualifiedTypeNameHistroy>

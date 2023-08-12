@@ -46,6 +46,8 @@ commands:
       description: report
       usage: d
       aliases: [r, 举报, melden, сообщить, 신고, 報告]
+   worldoption:
+      description: wp
      
       
       
