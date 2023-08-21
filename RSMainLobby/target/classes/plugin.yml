@@ -1,5 +1,0 @@
-name: RSMainLobby
-main: net.itsrelizc.lobby.main.Main
-version: 1.0.0
-author: Relizc
-depend: [RSBundler]
