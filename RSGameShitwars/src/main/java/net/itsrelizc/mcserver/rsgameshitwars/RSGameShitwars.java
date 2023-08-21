@@ -163,7 +163,6 @@ public final class RSGameShitwars extends JavaPlugin implements Listener {
                             menu.show();}
                         }
                     }else if(selectingPlayers.isEmpty()){
-                        manager.newRound();
                         //Game start
                         Bukkit.getScheduler().cancelTask(task1);
 

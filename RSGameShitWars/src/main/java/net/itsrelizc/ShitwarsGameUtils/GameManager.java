@@ -5,6 +5,8 @@ import net.itsrelizc.mcserver.rsgameshitwars.RSGameShitwars;
 import net.itsrelizc.menus.ClassicMenu;
 import net.itsrelizc.menus.ObjectFunction;
 import net.itsrelizc.menus.RunnableArgumentHolder;
+import net.itsrelizc.warp.ServerCategory;
+import net.itsrelizc.warp.WarpUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -108,8 +110,12 @@ public class GameManager implements Listener {
         this.banditsScore += this.hostages.size() - this.hostagesAlive.size();
 
         this.hostagesAlive = this.hostages;
-        if(rounds >= 0 ){
+        if(rounds <= 0 ){
             ChatUtils.broadcastSystemMessage("E","THE GAME HAS BECOME OVER!");
+            for(Player p:Bukkit.getOnlinePlayers()){
+                WarpUtils.send(p, ServerCategory.LOBBY_MAIN);
+
+            }
             return;
         }
         for(Player cur:this.cops){
@@ -183,7 +189,7 @@ public class GameManager implements Listener {
                         menu.show();}
                     }
                 }else if(selectingPlayers.isEmpty()){
-                    newRound();
+
                     Bukkit.getScheduler().cancelTask(task1);
                 }
             }
@@ -198,6 +204,8 @@ public class GameManager implements Listener {
         }
         if(this.hostagesAlive.size() == 0){
             //New round.
+            this.newRound();
+
         }
     }
 
