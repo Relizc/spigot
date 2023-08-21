@@ -17,6 +17,7 @@ import net.itsrelizc.menus.templates.MenuTemplate;
 import net.itsrelizc.menus.templates.TemplateBase;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.concurrent.Callable;
 
 public class ClassicMenu implements Listener {
 	
@@ -25,19 +26,25 @@ public class ClassicMenu implements Listener {
 	public Player holder;
 	private TemplateBase template;
 	private ClassicMenu previoustemp;
+	private ObjectFunction run = null;
+
+
 
 	public ClassicMenu(Player holder, int row, String name) {
 		this.menu = Bukkit.createInventory(holder, row * 9, name);
 		this.holder = holder;
 		this.row = row;
-		this.template = null;
+		TemplateBase MenuTemplate = new MenuTemplate();
+		this.template = MenuTemplate;
 		
 		this.previoustemp = null;
+		this.run = null;
 	}
 	
 	public ClassicMenu(Player player, int row, String name, TemplateBase template) {
 		this(player, row, name);
 		this.template = template;
+		this.run = null;
 	}
 	
 	public void setPreviousPage(ClassicMenu menu) {
@@ -95,7 +102,9 @@ public class ClassicMenu implements Listener {
 			this.menu.setItem(this.row * 9 - 6, it2);
 		}
 	}
-	
+	public void setClick(ObjectFunction runnable){
+		this.run = runnable;
+	}
 	public void show() {
 		this.fillEmpty();
 		this.putClose();
@@ -128,7 +137,11 @@ public class ClassicMenu implements Listener {
 			this.previoustemp.show();
 			return;
 		}
-		this.template.onClick(event);
+		if(this.run==null) this.template.onClick(event);
+		else{
+			this.run.acceptArgs(1,event);
+			this.run.run();
+		}
 	}
 	
 	@EventHandler

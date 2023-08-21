@@ -2,7 +2,7 @@ package net.itsrelizc.world;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.craftbukkit.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
@@ -32,7 +32,7 @@ public class StandardWorldManager implements Listener {
 	@EventHandler
 	public void a(PlayerCommandPreprocessEvent event) {
 		if ((!CHANGE_WEATHER) && event.getPlayer().isOp() && event.getMessage().startsWith("/weather")) {
-			event.getPlayer().sendMessage("bt", ChatColor.GOLD, "§cThe weather command might not work! §7Renable weather cycle by using the /worldoption command!");
+			event.getPlayer().sendMessage("bt"+ ChatColor.GOLD+ "§cThe weather command might not work! §7Renable weather cycle by using the /worldoption command!");
 			
 			TextComponent t = new TextComponent("§7[You can also click here to enable weathering]");
 			ChatUtils.attachCommand(t, "worldoption CHANGE_WEATHER true", null);
