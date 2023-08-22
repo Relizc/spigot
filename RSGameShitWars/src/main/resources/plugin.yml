@@ -1,7 +1,6 @@
 name: RSGameShitwars
-version: '${project.version}'
-main: net.itsrelizc.mcserver.rsgameshitwars.RSGameShitwars
-prefix: [ SHITWARS ]
+version: 1.0.0
+main: net.itsrelizc.game.shitwars.Main
 authors: [ Abra6325 ]
 description: This is a plugin for shitwars.
 website: shitwars.net

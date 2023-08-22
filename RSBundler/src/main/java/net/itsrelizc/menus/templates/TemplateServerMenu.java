@@ -185,7 +185,7 @@ public class TemplateServerMenu extends MenuTemplate {
 			menu.setPreviousPage(this.parent);
 			menu.show();
 		}else if(event.getSlot() == 11){
-			WarpUtils.send((Player)event.getWhoClicked(), ServerCategory.GAME_SHITWARS);
+			WarpUtils.send((Player)event.getWhoClicked(), ServerCategory.CLASSIC_SHITWARS);
 		}
 		
 		if (event.getSlot() == 44) {

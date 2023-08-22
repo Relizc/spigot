@@ -27,7 +27,7 @@ public class ShutdownManager {
 		UPDATE("Game Update", 30),
 		SCHEDULED("Scheduled Shutdown", 30),
 		EMERGENCY("Emergency Shutdown", 30),
-		DEBUG("Server Developement Team had issued a shutdown command", 15);
+		DEBUG("Server Developement Team had issued a shutdown command", 10);
 		
 		public String displayName;
 		public int tolerantTime;

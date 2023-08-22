@@ -16,7 +16,8 @@ public enum ServerCategory {
 	GAME_BRIDGE((byte) 0x03, (short) 13, true, null, ShuffleType.MORE_PLAYERS_FIRST),
 	SMP((byte) 0x02, (short) 0, false, null),
 	PUBLIC_BUILD((byte) 0x04, (short) 1, false, null),
-	GAME_SHITWARS((byte) 0x05, (short) 69,true,null,ShuffleType.MORE_PLAYERS_FIRST);
+	CLASSIC_SHITWARS((byte) 0x05, (short) 0, true, null, ShuffleType.MORE_PLAYERS_FIRST),
+	COMPETITIVE_SHITWARS((byte) 0x05, (short) 1, true, null, ShuffleType.MORE_PLAYERS_FIRST);
 
 	public byte data;
 	public short sub;

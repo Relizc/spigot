@@ -1,5 +1,7 @@
 package net.itsrelizc.world;
 
+import java.io.File;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
@@ -8,8 +10,10 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.plugin.Plugin;
+import org.json.simple.JSONObject;
 
 import net.itsrelizc.global.ChatUtils;
+import net.itsrelizc.global.JSON;
 import net.md_5.bungee.api.chat.TextComponent;
 
 public class StandardWorldManager implements Listener {
@@ -20,8 +24,19 @@ public class StandardWorldManager implements Listener {
 	
 	public static boolean BLOCK_PHYSICS_UPDATE = false;
 	
+	public static JSONObject worlddata;
+	
 	public static void init(Plugin plugin) {
 		Bukkit.getPluginManager().registerEvents(new StandardWorldManager(), plugin);
+		
+		File a = new File("world\\worldmetadata.rsd");
+		if (!a.exists()) {
+			plugin.getLogger().info("World Data File not found. Skipping");
+			return;
+		} else {
+			worlddata = JSON.pathLoadData(a.getPath());
+			plugin.getLogger().info("Completed World Data Loading");
+		}
 	}
 	
 	@EventHandler

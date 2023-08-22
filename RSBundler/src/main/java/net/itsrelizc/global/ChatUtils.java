@@ -134,6 +134,7 @@ public class ChatUtils {
 	}
 	
 	public static void attachOpenURL(TextComponent component, String url) {
+		component.setText(component.getText() + " ↗");
 		component.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, url));
 	}
 	

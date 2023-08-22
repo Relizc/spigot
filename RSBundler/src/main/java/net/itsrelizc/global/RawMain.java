@@ -26,12 +26,14 @@ import org.bukkit.command.SimpleCommandMap;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerLoginEvent.Result;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scoreboard.Scoreboard;
@@ -46,6 +48,7 @@ import net.itsrelizc.commands.UCommandInitlizer;
 import net.itsrelizc.commands.tests.OpenDemoMenu;
 import net.itsrelizc.commands.tests.WarpWithCat;
 import net.itsrelizc.debugger.Debugger;
+import net.itsrelizc.gamebase.GameUtils;
 import net.itsrelizc.hooks.SimplePackedInjector;
 import net.itsrelizc.nerdbot.Watcher;
 import net.itsrelizc.networking.Communication;
@@ -109,6 +112,7 @@ public class RawMain extends JavaPlugin implements Listener{
 		
 		Commanding.initlizeBlacklistCommands(this);
 		
+		GameUtils.init(this);
 		
 		Locale.loadLocales();
 		
@@ -165,6 +169,16 @@ public class RawMain extends JavaPlugin implements Listener{
 		//a.addPlayer(event.getPlayer());
 		
 		
+	}
+	
+	@EventHandler(priority=EventPriority.LOWEST)
+	public void join(PlayerJoinEvent event) {
+		event.setJoinMessage(null);
+	}
+	
+	@EventHandler(priority=EventPriority.LOWEST)
+	public void join(PlayerQuitEvent event) {
+		event.setQuitMessage(null);
 	}
 	
 	@EventHandler
