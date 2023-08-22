@@ -1,6 +1,7 @@
 package net.itsrelizc.ShitwarsGameUtils;
 
 import net.itsrelizc.global.ChatUtils;
+import net.itsrelizc.items.ItemGobackCompass;
 import net.itsrelizc.mcserver.rsgameshitwars.RSGameShitwars;
 import net.itsrelizc.menus.ClassicMenu;
 import net.itsrelizc.menus.ObjectFunction;
@@ -8,13 +9,17 @@ import net.itsrelizc.menus.RunnableArgumentHolder;
 import net.itsrelizc.warp.ServerCategory;
 import net.itsrelizc.warp.WarpUtils;
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
@@ -112,8 +117,19 @@ public class GameManager implements Listener {
         this.hostagesAlive = this.hostages;
         if(rounds <= 0 ){
             ChatUtils.broadcastSystemMessage("E","THE GAME HAS BECOME OVER!");
+            if(this.copsScore > this.banditsScore){
+                ChatUtils.broadcastSystemMessage("E","THE COPS WIN OZO");
+            }else if(this.banditsScore > this.copsScore){
+                ChatUtils.broadcastSystemMessage("E","bandits win");
+            }else{
+                ChatUtils.broadcastSystemMessage("e","draw");
+            }
             for(Player p:Bukkit.getOnlinePlayers()){
-                WarpUtils.send(p, ServerCategory.LOBBY_MAIN);
+                p.setGameMode(GameMode.SURVIVAL);
+                p.setAllowFlight(true);
+                p.getInventory().clear();
+                p.getInventory().setItem(9, ItemGobackCompass.getItem());
+                p.getInventory().setHeldItemSlot(9);
 
             }
             return;
@@ -197,15 +213,37 @@ public class GameManager implements Listener {
 
     }
     @EventHandler
-    public void onPlayerDeath(PlayerDeathEvent e){
-        Player p = e.getEntity();
-        if(this.hostages.contains(p)){
-            this.hostagesAlive.remove(p);
-        }
-        if(this.hostagesAlive.size() == 0){
-            //New round.
-            this.newRound();
+    public void onPlayerDeath(EntityDamageEvent e){
+        Player p = e.getEntity() instanceof Player? (Player) e.getEntity() : null;
+        if(p==null) return;
+        if(e.getDamage() > p.getHealth()){
+            e.setCancelled(true);
+            p.setHealth(20d);
+            ChatUtils.broadcastSystemMessage("SHITWARs","§7"+p.getName()+" HAS DIED!");
+            p.setGameMode(GameMode.SPECTATOR);
 
+            if(this.hostages.contains(p)){
+                this.hostagesAlive.remove(p);
+            }
+            if(this.hostagesAlive.size() == 0){
+                for(Player p1:Bukkit.getOnlinePlayers()){
+                    p1.setGameMode(GameMode.SURVIVAL);
+
+                }
+                //New round.
+                this.newRound();
+
+            }
+        }
+    }
+    @EventHandler
+    public void onRightClickCompass(PlayerInteractEvent e){
+        Player p = e.getPlayer();
+        if(e.getAction().equals(Action.RIGHT_CLICK_AIR)||e.getAction().equals(Action.RIGHT_CLICK_BLOCK)){
+            if(e.getItem()!=null&&e.getItem().equals(ItemGobackCompass.getItem())){
+                WarpUtils.send(p,ServerCategory.LOBBY_MAIN);
+
+            }
         }
     }
 

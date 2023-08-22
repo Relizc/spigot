@@ -6,6 +6,7 @@ import net.itsrelizc.menus.ClassicMenu;
 import net.itsrelizc.menus.ObjectFunction;
 import net.itsrelizc.menus.RunnableArgumentHolder;
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -64,6 +65,7 @@ public final class RSGameShitwars extends JavaPlugin implements Listener {
     private int task1;
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e){
+        e.getPlayer().setGameMode(GameMode.SURVIVAL);
         ChatUtils.broadcastSystemMessage("BAOZ","SUCKY "+e.getPlayer().getName()+" joined!["+Bukkit.getOnlinePlayers().size()+"]");
         if(Bukkit.getOnlinePlayers().size() >=10){
             ChatUtils.broadcastSystemMessage("SHITWARS","§7GAME START!");
