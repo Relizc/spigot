@@ -188,6 +188,7 @@ public class GameManager implements Listener {
             selectingPlayers.add(cur);
 
         }
+
         final Integer[] selection = {60};
         task1 =  Bukkit.getScheduler().scheduleSyncRepeatingTask(this.thisPlugin, new Runnable() {
             @Override
