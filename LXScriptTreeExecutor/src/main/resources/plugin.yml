@@ -1,0 +1,4 @@
+name: LXScriptTreeExecutor
+version: '${project.version}'
+main: net.itsrelizc.mcserver.lxscripttreeexecutor.LXScriptTreeExecutor
+api-version: '1.20'
