@@ -2,12 +2,14 @@ package net.itsrelizc.players;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
@@ -15,6 +17,7 @@ import org.bukkit.scoreboard.Scoreboard;
 import net.itsrelizc.global.ChatUtils;
 import net.itsrelizc.global.Global;
 import net.itsrelizc.global.Me;
+import net.md_5.bungee.api.ChatColor;
 
 public class GameScoreboard {
 	
@@ -45,7 +48,7 @@ public class GameScoreboard {
 		
 		this.scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
 		this.objective = this.scoreboard.registerNewObjective(Global.randomString(6), "dummy");
-		objective.setDisplayName("§e§l" + gamename.toUpperCase());
+		objective.setDisplayName("§7§l" + gamename.toUpperCase());
 		objective.setDisplaySlot(DisplaySlot.SIDEBAR);
 		
 		addLine("§7[RS-" + Me.getStaticCode() + "] §8(" + Bukkit.getServer().getPort() + ")");
@@ -118,6 +121,67 @@ public class GameScoreboard {
 			this.objective.getScore(s).setScore(i);
 			i --;
 		}
+	}
+	
+	public String curPrefixColor;
+	public int nextPrefixColor = -1;
+	public String stripped;
+	
+	public String[] COLORS = {"§7", "§9", "§a", "§b", "§c", "§d", "§e", "§r"};
+	public String[] DARK_COLORS = {"§8", "§1", "§2", "§3", "§4", "§5", "§6", "§7"};
+	
+	public void startScoreboardNameEffect(Plugin plugin, int indexEnd) {
+		
+		
+		neww(plugin, indexEnd);
+	}
+	
+	private void neww(Plugin plugin, int top) {
+		curPrefixColor = objective.getDisplayName().substring(0, 4);
+		int d = new Random().nextInt(8);
+		while (d == nextPrefixColor) d = new Random().nextInt(8);
+		nextPrefixColor = d;
+		stripped = objective.getDisplayName().substring(4);
+		
+		b(plugin, 0, top);
+	}
+	
+	private void b(Plugin plugin, int n, int top) {
+		 String complete = COLORS[nextPrefixColor] + "§l" + stripped.substring(0, n) + DARK_COLORS[nextPrefixColor] + "§l" + stripped.substring(0, n + 1).charAt(n) + curPrefixColor + stripped.substring(n + 1);
+		 this.objective.setDisplayName(complete);
+		 
+		 if (n == top) {
+			 
+			 Bukkit.getScheduler().runTaskLater(plugin, new Runnable() {
+
+				@Override
+				public void run() {
+					String complete = COLORS[nextPrefixColor] + "§l" + gamename + stripped.substring(n + 1);
+					objective.setDisplayName(complete);
+				}
+				 
+			 }, 2L);
+			 
+			 Bukkit.getScheduler().runTaskLater(plugin, new Runnable() {
+
+				@Override
+				public void run() {
+					neww(plugin, top);
+				}
+				 
+			 }, 102L);
+			 
+			 return;
+		 }
+		 
+		 Bukkit.getScheduler().runTaskLater(plugin, new Runnable() {
+
+			@Override
+			public void run() {
+				b(plugin, n + 1, top);
+			}
+			 
+		 }, 2L);
 	}
 	
 }
