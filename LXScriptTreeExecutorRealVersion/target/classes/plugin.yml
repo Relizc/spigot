@@ -1,0 +1,17 @@
+name: LXScriptTreeExecutorRealVersion
+version: '1.0-SNAPSHOT'
+main: net.itsrelizc.mcserver.lxscripttreeexecutorrealversion.LXScriptTreeExecutorRealVersion
+api-version: '1.20'
+commands:
+  openide:
+    description: fuck
+  quitide:
+    description: fuck my ass
+  ed:
+    description: go edit ur girlfriend pussy
+  del:
+    description: ur failure
+  openfromfile:
+    description: FUCK
+  setstarter:
+    description: shitass
