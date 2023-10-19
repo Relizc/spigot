@@ -106,8 +106,10 @@ public class Lexer {
                                 appearedQuote = false;
 
                             }else if(Arrays.asList(temp2).contains(read.toString())){
-                                this.lexxed.add(new LexerObject(LexerType.EXP,read.toString()));
-                                read = new StringBuilder();
+                                if(k.charAt(i+1)!='='){
+                                    this.lexxed.add(new LexerObject(LexerType.EXP,read.toString()));
+                                    read = new StringBuilder();
+                                }
                             }else if(read.toString().equals("(")){
                                 this.lexxed.add(new LexerObject(LexerType.SYN,LexerInnerObjectType.STARTPARENT));
                                 read = new StringBuilder();
@@ -162,8 +164,10 @@ public class Lexer {
                     appearedQuote = false;
 
                 }else if(Arrays.asList(temp2).contains(read.toString())){
-                    this.lexxed.add(new LexerObject(LexerType.EXP,read.toString()));
-                    read = new StringBuilder();
+                    if(k.charAt(i+1)!='='){
+                        this.lexxed.add(new LexerObject(LexerType.EXP,read.toString()));
+                        read = new StringBuilder();
+                    }
                 }else if(read.toString().equals("(")){
                     this.lexxed.add(new LexerObject(LexerType.SYN,LexerInnerObjectType.STARTPARENT));
                     read = new StringBuilder();

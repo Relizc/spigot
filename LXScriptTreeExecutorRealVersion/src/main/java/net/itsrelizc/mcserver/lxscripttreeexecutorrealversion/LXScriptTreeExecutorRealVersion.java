@@ -40,6 +40,7 @@ public final class LXScriptTreeExecutorRealVersion extends JavaPlugin {
             Lexer lexer = new Lexer(contents);
             lexer.lex();
             System.out.println("E");
+            System.out.println("AND NOW I AM ABOUT TO PRN");
             for(LexerObject l:lexer.getLexxed()){
                 System.out.println(l.getInner_Val() + " | "+l.getValue() + " | "+l.getType());
             }
@@ -50,7 +51,7 @@ public final class LXScriptTreeExecutorRealVersion extends JavaPlugin {
             Map<String, ParsedFunction> funcs = gen.parseInFuncs();
             Map<String,ParsedClass > classes = gen.parseClasses();
 
-            System.out.println(funcs.toString());
+            System.out.println(classes.toString());
 
 
 

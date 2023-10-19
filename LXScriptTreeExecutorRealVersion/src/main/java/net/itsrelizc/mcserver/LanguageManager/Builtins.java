@@ -11,7 +11,8 @@ import java.util.List;
 
 public class Builtins {
     public static List<String> funcNames = Arrays.asList(
-            "execute","getPlayerByName","global","listeninput"
+            "execute","getPlayerByName","global","createArray","modifyArray","getArray","return"
+
     );
     public static Object executeBuiltinFunction(List<Object> args,String funcName,LocalStorage localStorage){
         switch(funcName){
@@ -45,7 +46,37 @@ public class Builtins {
                     }
 
                 }
-
+                return true;
+            case "createArray":
+                if(!args.isEmpty()){
+                    Integer length = (Integer) args.get(0);
+                    Object[] ret = new Object[length];
+                    List<Object> elements = args.subList(1,args.size());
+                    for(int i=0;i<elements.size();i++){
+                        ret[i] = elements.get(i);
+                    }
+                    return ret;
+                }
+                return false;
+            case "modifyArray":
+                if(args.size() == 3){
+                    Object[] arr = (Object[]) args.get(0);
+                    Integer index = (Integer) args.get(1);
+                    Object value = args.get(2);
+                    arr[index ]= value;
+                    return arr;
+                }
+                return false;
+            case "getArray":
+                if(args.size() == 2){
+                    Object[] arr = (Object[]) args.get(0);
+                    Integer index = (Integer) args.get(1);
+                    return arr[index];
+                }
+            case "return":
+                if(args.size() == 1){
+                    return new Object[]{"ret",args.get(0)};
+                }
         }
         return null;
     }

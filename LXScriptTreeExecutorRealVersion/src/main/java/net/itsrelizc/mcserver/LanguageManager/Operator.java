@@ -17,7 +17,9 @@ public class Operator {
             this.name = id;
         }
         else{
+            System.out.println("COUNT               d");
             this.name = Lexer.temp2names[Arrays.asList(Lexer.temp2).indexOf(id)];
+            System.out.println(this.name);
 
         }
 

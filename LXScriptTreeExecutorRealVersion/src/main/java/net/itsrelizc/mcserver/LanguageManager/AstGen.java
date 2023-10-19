@@ -451,6 +451,9 @@ public class AstGen {
                 }
                 Node thisIf = op.addChild(new Node("if","operator"));
                 Node conditions = thisIf.addChild(new Node("conditions","null"));
+                for(LexerObject j:body){
+                    System.out.println("BODYLOLIF "+j.getValue()+ " | "+j.getType() + " | "+j.getInner_Val());
+                }
                 this.parse(body,conditions);
                 Node toRun = thisIf.addChild(new Node("contents","null"));
                 this.parse(contents,toRun);
@@ -575,6 +578,7 @@ public class AstGen {
                     side2.add(curCodes.get(j));
 
                 }
+
                 side1 = (String) curCodes.get(i-1).getInner_Val();
                 Node temp1 = op.addChild(new Node("ASSIGN","operator"));
                 temp1.addChild(new Node(side1,"loc"));
@@ -610,7 +614,7 @@ public class AstGen {
 
 
                     for(LexerObject jj : side1) System.out.println("SIDE2"+jj.getValue());
-                    if(curCodes.get(i+loops+1).getType() != LexerType.EXP){
+                    if(i+loops+1 >= curCodes.size()||curCodes.get(i+loops+1).getType() != LexerType.EXP){
                         Node temp1 = op.addChild(new Node("GETM", "operator"));
                         temp1.addChild(this.parse(side1, new Node("Class", "null")));
                         temp1.addChild(this.parse(side2, new Node("Method", "null")));
@@ -669,6 +673,7 @@ public class AstGen {
                             cnt++;
                             parsedArgs.add(d);
                         }
+                        i += parentPairs[1] - parentPairs[0];
 
 
 

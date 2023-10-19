@@ -3,10 +3,7 @@ package net.itsrelizc.mcserver.LanguageManager;
 import org.apache.commons.io.CopyUtils;
 import org.bukkit.Bukkit;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ScriptExecutor {
     public static Map<String,Object> globals = new HashMap<>();
@@ -45,20 +42,26 @@ public class ScriptExecutor {
                     return true;
                 }else if(torun.getValue() == "print"){
                     StringBuilder result = new StringBuilder();
-                    for(Node i:torun.getChildren()){
 
-                        result.append(this.execute(i,storage));
+
+                    for(Node i:torun.getChildren()){
+                        String a=  this.execute(i,storage).toString();
+
+
+
+
+                        result.append( a);
 
                     }
 
 
 
 
-                    Bukkit.broadcastMessage("[SERVER]"+result.toString());
+                    Bukkit.broadcastMessage("[SERVER]"+result);
                     return true;
 
                 }else if(torun.getValue() == "EXEC"){
-
+                    System.out.println("fname"+(String) torun.getNodebyName("funcName").getValue());
                     if(Builtins.funcNames.contains((String) torun.getNodebyName("funcName").getValue())) {
                         String funcName = (String) torun.getNodebyName("funcName").getValue();
                         List<Object> args = new ArrayList<>();
@@ -66,8 +69,9 @@ public class ScriptExecutor {
                             if(!i.getChildren().isEmpty())  args.add(this.execute(i.getChildren().get(0),storage));
                         }
 
+                        Object a =Builtins.executeBuiltinFunction(args,funcName,storage);
 
-                        return Builtins.executeBuiltinFunction(args,funcName,storage);
+                        return a;
 
 
 
@@ -98,12 +102,25 @@ public class ScriptExecutor {
                             }
 
                             for (Node i : wFunc.contents.getChildren()) {
-                                this.execute(i, wFunc.args.store);
+                                Object result = this.execute(i, wFunc.args.store);
+                                if(result instanceof  Object[]){
+                                    if(((Object[]) result).length == 2){
+                                        Object[] rtt = (Object[]) result;
+                                        System.out.println(Arrays.toString(rtt));
+                                        if(Objects.equals((String) rtt[0], "ret")){
+
+                                            return rtt[1];
+
+                                        }
+                                    }
+                                }
                             }
 
                             return true;
                         }else if(globals.get((String) torun.getNodebyName("funcName").getValue()) instanceof  ParsedClass){
-                            ParsedClass wClass = (ParsedClass) globals.get((String) torun.getNodebyName("funcName").getValue());
+                            System.out.println("THERE WE GO");
+                            ParsedClass goodClass = (ParsedClass) globals.get((String) torun.getNodebyName("funcName").getValue());
+                            ParsedClass wClass = new ParsedClass(goodClass.name,goodClass.parsedFunctionMap);
                             ParsedFunction init=wClass.parsedFunctionMap.get("init");
                             for (Node i : torun.getNodeByValue("ARGS").getChildren()) {
                                 Integer argId = (Integer) i.getValue();
@@ -129,6 +146,7 @@ public class ScriptExecutor {
                 }
                 else if (torun.getValue() == "if"){
                     Node cond = torun.getNodeByValue("conditions").getChildren().get(0);
+
 
                     boolean condition = (boolean) this.execute(cond,storage);
                     List<Node> contentsNode=torun.getNodeByValue("contents").getChildren();
@@ -168,7 +186,17 @@ public class ScriptExecutor {
 
                     }
                     for(Node i:theClass.parsedFunctionMap.get(fName).contents.getChildren()){
-                        this.execute(i,theClass.parsedFunctionMap.get(fName).args.store,theClass.storage);
+                        Object result = this.execute(i,theClass.parsedFunctionMap.get(fName).args.store,theClass.storage);
+
+                        if(result instanceof  Object[]){
+                            if(((Object[]) result).length == 2){
+                                Object[] rtt = (Object[]) result;
+                                if(Objects.equals((String) rtt[0], "ret")){
+                                    return rtt[1];
+
+                                }
+                            }
+                        }
                     }
                     return true;
 
@@ -251,11 +279,11 @@ public class ScriptExecutor {
                             );
                         case "UNEQUAL_CHECK":
                             return side1!=side2;
-                        case "LESS_EQUALS":
+                        case "LESS_EQUAL":
                             return (Integer) side1 <= (Integer) side2;
                         case "LESS":
                             return (Integer) side1 < (Integer) side2;
-                        case "GREATER_EQUALS":
+                        case "GREATER_EQUAL":
                             return (Integer) side1 >= (Integer) side2;
                         case "GREATER":
                             return (Integer) side1 > (Integer) side2;
@@ -269,9 +297,11 @@ public class ScriptExecutor {
                             return class1==class2;
 
                     }
+
+
                 }
             case "integer":
-                System.out.println("INTLOL"+torun.getValue());
+                System.out.println(torun.getValue() + "      d        "+torun.getName());
                 return (Integer) torun.getValue();
             case "string":
 
@@ -289,6 +319,7 @@ public class ScriptExecutor {
                         if(globals.get(name) instanceof ParsedClass){
                             ParsedClass d = (ParsedClass) globals.get(name);
                             ParsedClass newOne = new ParsedClass(d.name,d.parsedFunctionMap);
+                            System.out.println("i got the new clas");
                             return newOne;
                         }
                         return globals.get(name);
@@ -339,14 +370,14 @@ public class ScriptExecutor {
                     for(Node i:torun.getChildren()){
 
 
-                        result.append(this.execute(i,storage,objectStorage));
+                        result.append((String) this.execute(i,storage,objectStorage).toString());
 
                     }
 
 
 
 
-                    Bukkit.broadcastMessage("[SERVER]"+result.toString());
+                    Bukkit.broadcastMessage("[SERVER]"+ result);
                     return true;
 
                 }else if(torun.getValue() == "EXEC"){
@@ -390,7 +421,16 @@ public class ScriptExecutor {
                             }
 
                             for (Node i : wFunc.contents.getChildren()) {
-                                this.execute(i, wFunc.args.store);
+                                Object result = this.execute(i, wFunc.args.store);
+                                if(result instanceof  Object[]){
+                                    if(((Object[]) result).length == 2){
+                                        Object[] rtt = (Object[]) result;
+                                        if(Objects.equals((String) rtt[0], "ret")){
+                                            return rtt[1];
+
+                                        }
+                                    }
+                                }
                             }
 
                             return true;
@@ -437,7 +477,17 @@ public class ScriptExecutor {
 
                     }
                     for(Node i:theClass.parsedFunctionMap.get(fName).contents.getChildren()){
-                        this.execute(i,theClass.parsedFunctionMap.get(fName).args.store,theClass.storage);
+                        Object result = this.execute(i,theClass.parsedFunctionMap.get(fName).args.store,theClass.storage);
+
+                        if(result instanceof  Object[]){
+                            if(((Object[]) result).length == 2){
+                                Object[] rtt = (Object[]) result;
+                                if(Objects.equals((String) rtt[0], "ret")){
+                                    return rtt[1];
+
+                                }
+                            }
+                        }
                     }
                     return true;
 
@@ -563,6 +613,7 @@ public class ScriptExecutor {
                         if(globals.get(name) instanceof ParsedClass){
                             ParsedClass d = (ParsedClass) globals.get(name);
                             ParsedClass newOne = new ParsedClass(d.name,d.parsedFunctionMap);
+                            System.out.println("i got the new class");
                             return newOne;
                         }
                         return globals.get(name);
