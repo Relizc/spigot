@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="net.itsrelizc.players.Commanding"/>
-    <fullyQualifiedTypeName name="org.apache.commons.lang.StringUtils"/>
-    <fullyQualifiedTypeName name="net.itsrelizc.networking.Components"/>
-    <fullyQualifiedTypeName name="net.itsrelizc.global.Me"/>
-    <fullyQualifiedTypeName name="net.itsrelizc.server.ShutdownManager.ShutdownType"/>
-    <fullyQualifiedTypeName name="net.itsrelizc.server.ShutdownManager"/>
-    <fullyQualifiedTypeName name="net.itsrelizc.commands.UCommandInitlizer"/>
     <fullyQualifiedTypeName name="net.itsrelizc.server.ULogHandler"/>
     <fullyQualifiedTypeName name="org.bukkit.command.CommandExecutor"/>
     <fullyQualifiedTypeName name="org.bukkit.command.TabCompleter"/>
     <fullyQualifiedTypeName name="net.itsrelizc.commands.IBaseCommand"/>
     <fullyQualifiedTypeName name="net.itsrelizc.nerdbot.report.ReportTypes"/>
     <fullyQualifiedTypeName name="net.itsrelizc.players.DataManager"/>
-    <fullyQualifiedTypeName name="java.io.File"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="org.apache.commons.lang3.StringUtils"/>
@@ -40,8 +31,6 @@
     <fullyQualifiedTypeName name="net.itsrelizc.networking.Communication"/>
     <fullyQualifiedTypeName name="org.bukkit.event.block.BlockPhysicsEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.Material"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="org.bukkit.event.EventHandler"/>
     <fullyQualifiedTypeName name="org.bukkit.event.weather.WeatherChangeEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerCommandPreprocessEvent"/>
@@ -57,4 +46,18 @@
     <fullyQualifiedTypeName name="org.bukkit.craftbukkit.entity.CraftPlayer"/>
     <fullyQualifiedTypeName name="net.md_5.bungee.api.chat.TextComponent"/>
     <fullyQualifiedTypeName name="net.itsrelizc.world.StandardWorldManager"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="java.io.FileWriter"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+    <fullyQualifiedTypeName name="net.itsrelizc.cs.kevinpunisher.actions.AddRule"/>
+    <fullyQualifiedTypeName name="net.itsrelizc.cs.kevinpunisher.RuleBreaker"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.Random"/>
+    <fullyQualifiedTypeName name="net.itsrelizc.cs.kevinpunisher.actions.SaveLogs"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="net.itsrelizc.cs.kevinpunisher.actions.ClearLogs"/>
+    <fullyQualifiedTypeName name="net.itsrelizc.cs.kevinpunisher.DataIO"/>
+    <fullyQualifiedTypeName name="net.itsrelizc.cs.kevinpunisher.actions.Analyze"/>
 </qualifiedTypeNameHistroy>

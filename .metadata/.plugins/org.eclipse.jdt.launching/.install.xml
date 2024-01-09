@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <dirs>
     <entry loc="C:\Users\relizc\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502\jre" stamp="1690099703657"/>
+    <entry loc="/Users/relizc/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.macosx.x86_64_17.0.8.v20230801-1951" stamp="1691493499110"/>
     <entry loc="C:\Users\relizc\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502" stamp="1690099703659"/>
     <entry loc="C:\Program Files\Java\jre-1.8" stamp="1690364397817"/>
     <entry loc="C:\Program Files\Java\jre1.8.0_202" stamp="1690558469551"/>
+    <entry loc="/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home" stamp="1691593249006"/>
     <entry loc="C:\Program Files\Java\jdk1.8.0_202" stamp="1679127095057"/>
     <entry loc="C:\Program Files\Java\jdk-17.0.3.1" stamp="1655119785277"/>
     <entry loc="C:\Program Files\Java\jre-1.8\bin" stamp="1690364392544"/>
+    <entry loc="/Users/relizc/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.macosx.x86_64_17.0.8.v20230801-1951/jre" stamp="1691493499110"/>
+    <entry loc="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home" stamp="1691593249166"/>
     <entry loc="C:\Program Files\Java\jre1.8.0_202\bin" stamp="1690558464064"/>
 </dirs>

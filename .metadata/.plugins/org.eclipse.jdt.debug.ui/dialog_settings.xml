@@ -4,4 +4,11 @@
 	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth1" value="194"/>
 	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth2" value="82"/>
 	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.sortColumn" value="1"/>
+	<section name="OpenFromClipboardAction_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="496"/>
+		<item key="DIALOG_Y_ORIGIN" value="188"/>
+		<item key="DIALOG_WIDTH" value="425"/>
+		<item key="DIALOG_HEIGHT" value="380"/>
+		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
+	</section>
 </section>
